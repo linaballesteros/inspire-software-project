@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  
+    
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <title>Leaderboard</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+        <!-- Google Fonts Roboto -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&display=swap" />
+        <!-- MDB -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"  />
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" />
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+    
+        <style>
+            .bright-blue-bg {
+              background-color: #89CFF0;
+            }
+            /* Custom table styling */
+        .table {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Position number styling */
+        .position-number {
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+        }
+
+        /* Top positions background colors */
+        .top1 {
+            background-color: #ffca28; /* Gold */
+        }
+        .top2 {
+            background-color: #c0c0c0; /* Silver */
+        }
+        .top3 {
+            background-color: #cd7f32; /* Bronze */
+        }
+        .other-positions {
+            background-color: lightgray;
+        }
+            
+          </style>
+          
+        
+        
+    </head>
+    
+    <body>
+        <!--Main Navigation-->
+        <header>
+          <!-- Jumbotron -->
+          <div class="p-3 text-center bg-white border-bottom">
+            <div class="container">
+              <div class="row gy-3">
+                <!-- Left elements -->
+                <div class="col-lg-2 col-sm-4 col-4">
+                  <a href="https://github.com/linaballesteros/integrating-project-I" target="_blank" class="float-start">
+                    <img src="https://github.com/linaballesteros/inspire-software-project/blob/main/WhatsApp%20Image%202023-08-23%20at%201.58.50%20PM.jpg?raw=true" height="120" />
+                  </a>
+                </div>
+                <!-- Left elements -->
+        
+                <!-- Center elements -->
+                <div class="order-lg-last col-lg-10 col-sm-8 col-15">
+                  <div class="d-flex float-end">
+                    
+                        
+                    <a href="http://localhost:8000/my_profile" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My Profile</p> </a>
+                    <a href="http://localhost:8000/ranking" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-bars m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My Company</p> </a>
+                    <a href="http://localhost:8000/shop" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-check-square m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Shop</p> </a>
+                    <a href="http://localhost:8000/challenges" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-square m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Challenges</p> </a>
+                  </div>
+                  </div>
+                <!-- Center elements -->
+        
+                <!-- Right elements -->
+              
+                <!-- Right elements -->
+              </div>
+            </div>
+          </div>
+          <!-- Jumbotron -->
+  <!-- Heading -->
+  <div class="bg-primary mb-4 " >
+    <div class="container py-4">
+      <h3 class="text-white mt-2">Leaderboard</h3>
+      <!-- Breadcrumb -->
+      <nav class="d-flex mb-2">
+        <h6 class="mb-0">
+          <a href="http://localhost:8000" class="text-white-50"><u>Home</u></a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a href="http://localhost:8000/my_profile" class="text-white custom-font"><u>Leaderboard</u></a>
+        </h6>
+      </nav>
+      <!-- Breadcrumb -->
+    </div>
+  </div>
+  <!-- Heading -->
+</header>
+  
+  <!-- Contenido principal -->
+  <section class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Completed Challenges</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Fila 1 - Cambia las imágenes y la información según tus empleados -->
+            <tr class = "top1">
+                
+                <td class="position-number">1</td> 
+                <td><img src="https://static.vecteezy.com/system/resources/previews/004/773/704/original/a-girl-s-face-with-a-beautiful-smile-a-female-avatar-for-a-website-and-social-network-vector.jpg" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Lina Ballesteros</td>
+                <td>Financial Representative</td>
+                <td>14</td>
+            </tr>
+
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+                <tr class="top2"> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">2</td> 
+                <td><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Juan Martin Espitia</td>
+                <td>Business Analyst</td>
+                <td>12</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class="top3"> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">3</td> 
+                <td><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Camilo Villa</td>
+                <td>Business Manager</td>
+                <td>10</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">4</td> 
+                <td><img src="https://static.vecteezy.com/system/resources/previews/004/773/704/original/a-girl-s-face-with-a-beautiful-smile-a-female-avatar-for-a-website-and-social-network-vector.jpg" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Emily Smith</td>
+                <td>Senior Software Engineer</td>
+                <td>9</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">5</td> 
+                <td><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>David Blandón</td>
+                <td>Project Director</td>
+                <td>9</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">6</td> 
+                <td><img src="https://static.vecteezy.com/system/resources/previews/004/773/704/original/a-girl-s-face-with-a-beautiful-smile-a-female-avatar-for-a-website-and-social-network-vector.jpg" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Daniela Lee</td>
+                <td>Marketing Analyst</td>
+                <td>8</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">7</td> 
+                <td><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Michael Davis</td>
+                <td>Human Resources Director</td>
+                <td>6</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">8</td> 
+                <td><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Polo White</td>
+                <td>Graphic Designer</td>
+                <td>3</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">9</td> 
+                <td><img src="https://static.vecteezy.com/system/resources/previews/004/773/704/original/a-girl-s-face-with-a-beautiful-smile-a-female-avatar-for-a-website-and-social-network-vector.jpg" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>Amanda Miller</td>
+                <td>Research Analyst</td>
+                <td>3</td>
+            </tr>
+            
+            <!-- Fila 2 - Cambia las imágenes y la información según tus empleados -->
+            <tr class=""> <!-- Apply the 'top1' class to the first row -->
+                <td class="position-number">10</td> 
+                <td><img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 60px;"></td>
+                <td>William Clark</td>
+                <td>Operations Manager</td>
+                <td>1</td>
+            </tr>
+
+            <!-- Agrega más filas para más empleados -->
+        </tbody>
+    </table>
+</section>
+
+ <!-- Footer -->
+<footer class="text-center text-lg-start text-muted bg-primary mt-3">
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start pt-4 pb-4">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-12 col-lg-3 col-sm-12 mb-2">
+          <!-- Content -->
+          <a href="https://mdbootstrap.com/" target="_blank" class="text-white h2">
+            SeekU
+          </a>
+          <p class="mt-1 text-white">
+            © 2023 Copyright: Seeku 2023
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 col-sm-4 col-lg-2">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-2">
+            Project
+          </h6>
+          <ul class="list-unstyled mb-4">
+            <li><a class="text-white-50" href="#">About us</a></li>
+            <li><a class="text-white-50" href="#">FAQ</a></li>
+            <li><a class="text-white-50" href="#">Categories</a></li>
+            <li><a class="text-white-50" href="#">Terms and Conditions</a></li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 col-sm-4 col-lg-2">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-2">
+            Information
+          </h6>
+          <ul class="list-unstyled mb-4">
+            <li><a class="text-white-50" href="#">Help center</a></li>
+            <li><a class="text-white-50" href="#">About the Lost and Found Objects System in EAFIT</a></li>
+            <li><a class="text-white-50" href="#">Information</a></li>
+            <li><a class="text-white-50" href="#">Contribute</a></li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 col-sm-4 col-lg-2">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-2">
+            Support
+          </h6>
+          <ul class="list-unstyled mb-4">
+            <li><a class="text-white-50" href="#">Help</a></li>
+            <li><a class="text-white-50" href="#">Documents</a></li>
+            <li><a class="text-white-50" href="#">Project Info</a></li>
+            <li><a class="text-white-50" href="#">My profile</a></li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-12 col-sm-12 col-lg-3">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-2">Notifications</h6>
+          <p class="text-white">Get information about Seeku</p>
+          <div class="input-group mb-3">
+            <input type="email" class="form-control border" placeholder="Email" aria-label="Email" aria-describedby="button-addon2" />
+            <div class="input-group-append">
+              <button class="btn btn-light border shadow-0" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                Join
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <div class="">
+    <div class="container">
+      <div class="d-flex justify-content-between py-4 border-top">
+          <!--- payment --->
+
+          <!--- payment --->
+  
+          <!--- language selector --->
+          <div class="dropdown dropup">
+            <a class="dropdown-toggle text-white" href="#" id="Dropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> <i class="flag-united-kingdom flag m-0 me-1"></i>English </a>
+  
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Dropdown">
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-united-kingdom flag"></i>English <i class="fa fa-check text-success ms-2"></i></a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-poland flag"></i>Polski</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-china flag"></i>中文</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-japan flag"></i>日本語</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-germany flag"></i>Deutsch</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-france flag"></i>Français</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-spain flag"></i>Español</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-russia flag"></i>Русский</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#"><i class="flag-portugal flag"></i>Português</a>
+              </li>
+            </ul>
+          </div>
+          <!--- language selector --->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
