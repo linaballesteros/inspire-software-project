@@ -16,24 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from inspire_app1 import views as app1_views
-
+from challenges import views as challenges_views
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('', app1_views.home2),
-    path('my_profile', app1_views.my_profile, name='my_profile'),
-    path('ranking', app1_views.ranking, name='ranking'),
-    path('challenges', app1_views.challenges, name='challenges'),
-    path('create_challenge', app1_views.create_challenge, name='create_challenge'),
-    path('create_challenge_', app1_views.create_challenge_, name='create_challenge_'),
-    path('edit_challenge/<int:reto_id>/', app1_views.edit_challenge, name='edit_challenge'),
-    path('view_challenges', app1_views.view_challenges, name='view_challenges'),
-    path('login', app1_views.login, name='login'),
-    path('sign_up', app1_views.sign_up, name='sign_up'),
-    path('home2', app1_views.home2, name='home2'),
+    path('', challenges_views.home2),
+    path('my_profile', challenges_views.my_profile, name='my_profile'),
+    path('ranking', challenges_views.ranking, name='ranking'),
+    path('challenges', challenges_views.challenges, name='challenges'),
+    path('create_challenge', challenges_views.create_challenge, name='create_challenge'),
+    path('create_challenge_', challenges_views.create_challenge_, name='create_challenge_'),
+    path('edit_challenge/<int:reto_id>/', challenges_views.edit_challenge, name='edit_challenge'),
+    path('view_challenges', challenges_views.view_challenges, name='view_challenges'),
+    path('login', challenges_views.login, name='login'),
+    path('sign_up', challenges_views.sign_up, name='sign_up'),
+    path('home2', challenges_views.home2, name='home2'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

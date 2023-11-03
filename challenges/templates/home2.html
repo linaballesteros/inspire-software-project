@@ -1,5 +1,4 @@
 <html lang="en"><head>
-
     <meta charset="utf-8">
     <title>Inspire</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -24,52 +23,11 @@
     <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
     <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-  
+
   
     <!-- Main Stylesheet File -->
     <link href="static/css/style.css" rel="stylesheet">
-    <style>
-        /* Estilo para la fuente del formulario */
-        form {
-            font-family: 'Montserrat', sans-serif; /* Fuente de Google 'Montserrat' o la fuente que desees */
-        }
-    
-        /* Estilo para los labels */
-        label {
-            font-family: 'Montserrat', sans-serif; /* Fuente de Google 'Montserrat' o la fuente que desees */
-            font-weight: bold; /* Opcional: Haz que los labels sean negritas */
-        }
-        .btn-primary {
-            background-color: #003366 !important; /* Azul marino más claro */
-            border-color: #003366 !important; /* Color del borde igual al fondo */
-            color: #fff !important; /* Texto en blanco */
-        }
-    
-        .btn-primary:hover {
-            background-color: #005b96 !important; /* Cambia el color de fondo al pasar el cursor por encima */
-            border-color: #005b96 !important; /* Cambia el color del borde al pasar el cursor por encima */
-        }
-        
-          /* Estilo para las cartas de los retos */
-          .challenge-card {
-              width: 18rem;
-              margin: 1rem;
-              border: 1px solid #e0e0e0;
-              border-radius: 10px;
-              padding: 1rem;
-          }
-  
-          /* Estilo para la imagen del reto */
-          .challenge-card img {
-              max-width: 100%;
-              height: auto;
-          }
-      </style>
-    </style>
-    
-    
   
     <!-- =======================================================
       Theme Name: Reveal
@@ -114,12 +72,7 @@
           <nav id="nav-menu-container">
             <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li class="menu-active"><a href="#body">Inicio</a></li>
             <li><a href="#about">Iniciar Sesión</a></li>
-            <li class="menu-has-children"><a href="" class="sf-with-ul">Retos</a>
-                <ul style="display: none;">
-                  <li><a href="http://localhost:8000/create_challenge">Crear Reto</a></li>
-                  <li><a href="#">Ver Retos</a></li>
-                </ul>
-              </li>
+            <li><a href="http://localhost:8000/challenges">Retos</a></li>
             <li><a href="#portfolio">Mi Perfil</a></li>
             <li><a href="#team">Tienda</a></li>
             <li class="menu-has-children"><a href="" class="sf-with-ul">Mi Empresa</a>
@@ -139,63 +92,125 @@
       Intro Section
     ============================-->
    
+    <section id="intro">
+  
+      <div class="intro-content">
+        <h2>Desarrolla tus <span>habilidades</span><br>mientras ganas insignias</h2>
+        <div>
+          <a href="#about" class="btn-get-started scrollto">Cómo Funciona</a>
+          <a href="https://github.com/linaballesteros/inspire-software-project" class="btn-projects scrollto">Proyecto</a>
+        </div>
+      </div>
+  
+      <div id="intro-carousel" class="owl-carousel owl-loaded owl-drag">
+        
+        
+        
+        
+        
+      <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-4032px, 0px, 0px); transition: all 0s ease 0s; width: 6336px;"><div class="owl-item cloned" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/3.jpg');"></div></div><div class="owl-item cloned" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/4.jpg');"></div></div><div class="owl-item cloned" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/5.jpg');"></div></div><div class="owl-item" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/1.jpg');"></div></div><div class="owl-item" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/2.jpg');"></div></div><div class="owl-item" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/3.jpg');"></div></div><div class="owl-item" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/4.jpg');"></div></div><div class="owl-item active" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/5.jpg');"></div></div><div class="owl-item cloned" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/1.jpg');"></div></div><div class="owl-item cloned" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/2.jpg');"></div></div><div class="owl-item cloned" style="width: 576px;"><div class="item" style="background-image: url('static/img/intro-carousel/3.jpg');"></div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div></div>
+  
+    </section><!-- #intro -->
   
     <main id="main">
   
-   
+      <!--==========================
+        About Section
+      ============================-->
+      <section id="about" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 about-img">
+              <img src="https://png.pngtree.com/png-vector/20230823/ourmid/pngtree-linear-design-team-concept-vector-png-image_6870452.png" alt="" width="600" height="500">
+            </div>
+  
+            <div class="col-lg-6 content">
+              <h2></h2>
+              <h3>Bienvenido a Inspire, la solución perfecta para las empresas que buscan fomentar el crecimiento y el compromiso de sus empleados. Nuestra plataforma te brinda la oportunidad de crear desafíos personalizados que inspiran, motivan y estimulan el aprendizaje continuo de tu equipo.</h3>
+  
+              <ul>
+                <li><i class="ion-android-checkmark-circle"></i> Inspira a tu equipo a superar desafíos y alcanzar metas más altas.</li>
+                <li><i class="ion-android-checkmark-circle"></i> Fomenta un ambiente de aprendizaje continuo en tu organización.</li>
+                <li><i class="ion-android-checkmark-circle"></i> Crea desafíos a medida que se adapten a las necesidades de tu empresa.</li>
+              </ul>
+  
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- #about -->
   
       <!--==========================
         Services Section
       ============================-->
-      <section id="retos-disponibles" class="bg-light py-5">
+      <section id="services">
         <div class="container">
           <div class="section-header">
-            <h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">Retos Disponibles</h2>
-            <p class="text-center" style="font-family: 'Montserrat', sans-serif;">Aquí puedes ver los retos disponibles.</p>
+            <h2>Services</h2>
+            <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
           </div>
-      
+  
           <div class="row">
-            {% for reto in retos %}
-              <div class="col-lg-4">
-                <div class="card mb-4 h-100">
-                  <div class="card-header">
-                    <h5 class="card-title" style="font-family: 'Montserrat', sans-serif;">{{ reto.nombre }}</h5>
-                  </div>
-                  <div class="card-body">
-                    <img src="{{ reto.imagen.url }}" class="card-img-top" alt="{{ reto.nombre }}">
-                    <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ reto.descripcion }}</p>
-                    <ul class="list-group list-group-flush">
-                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Fecha de Creación: {{ reto.fecha_publicacion }}</li>
-                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Fecha de Vencimiento: {{ reto.fecha_vencimiento }}</li>
-                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Tokens: {{ reto.tokens }}</li>
-                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Límite de Participantes: {{ reto.limite_participantes }}</li>
-                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Límite de Ganadores: {{ reto.cantidad_ganadores }}</li>
-                    </ul>
-                  </div>
-                  {% if reto.id %}
-                  <div class="card-footer">
-                    <a href="{% url 'edit_challenge' reto_id=reto.id %}" class="btn btn-primary">
-                      Editar Reto
-                    </a>
-                  </div>
-                  {% endif %}
-                </div>
+  
+            <div class="col-lg-6">
+              <div class="box wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
+                <div class="icon"><i class="fa fa-bar-chart"></i></div>
+                <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+                <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
               </div>
-            {% endfor %}
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="box wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                <div class="icon"><i class="fa fa-picture-o"></i></div>
+                <h4 class="title"><a href="">Dolor Sitema</a></h4>
+                <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="box wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+                <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+                <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
+              </div>
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="box wow fadeInRight" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInRight;">
+                <div class="icon"><i class="fa fa-map"></i></div>
+                <h4 class="title"><a href="">Magni Dolores</a></h4>
+                <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
+              </div>
+            </div>
+  
           </div>
+  
         </div>
-      </section>
-      
-      
-      
-      
-    
+      </section><!-- #services -->
   
       <!--==========================
-        Clients Section 
+        Clients Section
       ============================-->
       <section id="clients" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-    
+        <div class="container">
+          <div class="section-header">
+            <h2>Clients</h2>
+            <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+          </div>
+  
+          <div class="owl-carousel clients-carousel owl-loaded owl-drag">
+            
+            
+            
+            
+            
+            
+            
+            
+          <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1275px, 0px, 0px); transition: all 0.25s ease 0s; width: 4080px;"><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-5.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-6.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-7.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-8.png" alt=""></div><div class="owl-item" style="width: 255px;"><img src="static/img/clients/client-1.png" alt=""></div><div class="owl-item active" style="width: 255px;"><img src="static/img/clients/client-2.png" alt=""></div><div class="owl-item active" style="width: 255px;"><img src="static/img/clients/client-3.png" alt=""></div><div class="owl-item" style="width: 255px;"><img src="static/img/clients/client-4.png" alt=""></div><div class="owl-item" style="width: 255px;"><img src="static/img/clients/client-5.png" alt=""></div><div class="owl-item" style="width: 255px;"><img src="static/img/clients/client-6.png" alt=""></div><div class="owl-item" style="width: 255px;"><img src="static/img/clients/client-7.png" alt=""></div><div class="owl-item" style="width: 255px;"><img src="static/img/clients/client-8.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-1.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-2.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-3.png" alt=""></div><div class="owl-item cloned" style="width: 255px;"><img src="static/img/clients/client-4.png" alt=""></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+  
+        </div>
       </section><!-- #clients -->
   
       <!--==========================
@@ -204,8 +219,8 @@
       <section id="portfolio" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
         <div class="container">
           <div class="section-header">
-            <h2>Estadísticas</h2>
-            <p>Visualiza las estadísticas y el comportamiento de los empleados de tu organización de acuerdo a los retos que completan.</p>
+            <h2>Our Portfolio</h2>
+            <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
           </div>
         </div>
   
