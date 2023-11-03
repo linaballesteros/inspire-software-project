@@ -1,253 +1,633 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-    
-      
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta http-equiv="x-ua-compatible" content="ie=edge" />
-      <title>Profile</title>
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-      <!-- Google Fonts Roboto -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-      <!-- MDB -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"  />
-      <!-- Custom styles -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" />
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Inspire</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-      <style>
-        /* Estilo para las cartas de los retos */
-        .challenge-card {
-            width: 18rem;
-            margin: 1rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 1rem;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
 
-        /* Estilo para la imagen del reto */
-        .challenge-card img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
+  <!-- Bootstrap CSS File -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Include jQuery from a CDN -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- static/libraries CSS Files -->
+  <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+
+
+  <!-- Main Stylesheet File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Reveal
+    Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+<style type="text/css" id="operaUserStyle"></style></head>
+
+<body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
+
+  <!--==========================
+    Top Bar
+  ============================-->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="contact-info float-left">
+        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">inspire@gmail.com</a>
+        <i class="fa fa-phone"></i> +57 301 574 4871 
+      </div>
+      <div class="social-links float-right">
+        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+    Header
+  ============================-->
+  <div id="header-sticky-wrapper" class="sticky-wrapper" style="height: 84px;">
+    <header id="header">
+      <div class="container">
+        <div id="logo" class="pull-left">
+          <h1><a href="#body" class="scrollto"><span>I</span>ns<span>p</span>ire</a></h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+        </div>
+        <nav id="nav-menu-container">
+          <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li class="menu-active"><a href="#body">Inicio</a></li>
+          <li><a href="#about">Iniciar Sesión</a></li>
+          <li><a href="http://localhost:8000/challenges">Retos</a></li>
+          <li><a href="#portfolio">Mi Perfil</a></li>
+          <li><a href="#team">Tienda</a></li>
+          <li class="menu-has-children"><a href="" class="sf-with-ul">Mi Empresa</a>
+            <ul style="display: none;">
+              <li><a href="#">Progreso de la Organización</a></li>
+              <li><a href="#">Información</a></li>
+              <li><a href="#">Analíticas</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Acerca De</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header></div><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+ 
+
+  <main id="main">
+
+ 
+
+    <!--==========================
+      Services Section
+    ============================-->
+    <br></br>
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Retos</h2>
+          <p>Administración de Retos</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
+              <div class="icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+              <h4 class="title"><a href="http://localhost:8000/create_challenge">Crear Reto</a></h4>
+              <p class="description">Crea un nuevo reto para que tu organización participe.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="box wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+              <div class="icon"><i class="fa fa-check-square-o" aria-hidden="true"></i></div>
+              <h4 class="title"><a href="">Ver Retos</a></h4>
+              <p class="description">Visualiza los retos publicados en tu organización.</p>
+            </div>
+          </div>
+
+          <div id="carouselExample" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExample" data-slide-to="1"></li>
+                <li data-target="#carouselExample" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://www.alva-group.com/wp-content/uploads/fly-images/11163/advantages-of-good-corporate-reputation-0x2000-c.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://www.onboardmeetings.com/wp-content/uploads/2022/04/The-Basics-of-Corporate-Structure-2-1200x675.jpeg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="https://www.fico.com/sites/default/files/styles/lg/public/2023-05/AdobeStock_487248459.jpeg.webp?itok=na0RkE8t" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
         
-      
-      
-  </head>
 
-  <body>
-      <!--Main Navigation-->
-      <header>
-        <!-- Jumbotron -->
-        <div class="p-3 text-center bg-white border-bottom">
-          <div class="container">
-            <div class="row gy-3">
-              <!-- Left elements -->
-              <div class="col-lg-2 col-sm-4 col-4">
-                <a href="https://github.com/linaballesteros/integrating-project-I" target="_blank" class="float-start">
-                  <img src="https://github.com/linaballesteros/inspire-software-project/blob/main/WhatsApp%20Image%202023-08-23%20at%201.58.50%20PM.jpg?raw=true" height="120" />
-                </a>
-              </div>
-              <!-- Left elements -->
-      
-              <!-- Center elements -->
-              <div class="order-lg-last col-lg-10 col-sm-8 col-15">
-                <div class="d-flex float-end">
-                  
-                  
-                  <a href="http://localhost:8000/my_profile" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My Profile</p> </a>
-                  <a href="http://localhost:8000/ranking" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-bars m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My Company</p> </a>
-                  <a href="http://localhost:8000/shop" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-check-square m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Shop</p> </a>
-                  <a href="http://localhost:8000/challenges" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-square m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Challenges</p> </a>
+
+        </div>
+
+      </div>
+    </section><!-- #services -->
+
+    <!--==========================
+      Clients Section 
+    ============================-->
+    <section id="clients" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+  
+    </section><!-- #clients -->
+
+    <!--==========================
+      Our Portfolio Section
+    ============================-->
+    <section id="portfolio" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Estadísticas</h2>
+          <p>Visualiza las estadísticas y el comportamiento de los empleados de tu organización de acuerdo a los retos que completan.</p>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row no-gutters">
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/1.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/1.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 1</h2></div>
                 </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/2.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/2.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 2</h2></div>
                 </div>
-              <!-- Center elements -->
-      
-              <!-- Right elements -->
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/3.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/3.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 3</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/4.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/4.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 4</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/5.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/5.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 5</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/6.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/6.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 6</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/7.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/7.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 7</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4">
+            <div class="portfolio-item wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+              <a href="static/img/portfolio/8.jpg" class="portfolio-popup">
+                <img src="static/img/portfolio/8.jpg" alt="">
+                <div class="portfolio-overlay">
+                  <div class="portfolio-info"><h2 class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Portfolio Item 8</h2></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- #portfolio -->
+
+    <!--==========================
+      Testimonials Section
+    ============================-->
+    <section id="testimonials" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Testimonials</h2>
+          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+        </div>
+        <div class="owl-carousel testimonials-carousel owl-loaded owl-drag">
+
             
-              <!-- Right elements -->
+
+            
+
+            
+
+            
+
+            
+
+        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-3570px, 0px, 0px); transition: all 0.25s ease 0s; width: 5610px;"><div class="owl-item cloned" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-3.jpg" class="testimonial-img" alt="">
+              <h3>Jena Karlis</h3>
+              <h4>Store Owner</h4>
+            </div></div><div class="owl-item cloned" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-4.jpg" class="testimonial-img" alt="">
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+            </div></div><div class="owl-item cloned" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-5.jpg" class="testimonial-img" alt="">
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+            </div></div><div class="owl-item" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-1.jpg" class="testimonial-img" alt="">
+              <h3>Saul Goodman</h3>
+              <h4>Ceo &amp; Founder</h4>
+            </div></div><div class="owl-item" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-2.jpg" class="testimonial-img" alt="">
+              <h3>Sara Wilsson</h3>
+              <h4>Designer</h4>
+            </div></div><div class="owl-item" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-3.jpg" class="testimonial-img" alt="">
+              <h3>Jena Karlis</h3>
+              <h4>Store Owner</h4>
+            </div></div><div class="owl-item" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-4.jpg" class="testimonial-img" alt="">
+              <h3>Matt Brandon</h3>
+              <h4>Freelancer</h4>
+            </div></div><div class="owl-item active" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-5.jpg" class="testimonial-img" alt="">
+              <h3>John Larson</h3>
+              <h4>Entrepreneur</h4>
+            </div></div><div class="owl-item cloned" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-1.jpg" class="testimonial-img" alt="">
+              <h3>Saul Goodman</h3>
+              <h4>Ceo &amp; Founder</h4>
+            </div></div><div class="owl-item cloned" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-2.jpg" class="testimonial-img" alt="">
+              <h3>Sara Wilsson</h3>
+              <h4>Designer</h4>
+            </div></div><div class="owl-item cloned" style="width: 510px;"><div class="testimonial-item">
+              <p>
+                <img src="static/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                <img src="static/img/quote-sign-right.png" class="quote-sign-right" alt="">
+              </p>
+              <img src="static/img/testimonial-3.jpg" class="testimonial-img" alt="">
+              <h3>Jena Karlis</h3>
+              <h4>Store Owner</h4>
+            </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button></div></div>
+
+      </div>
+    </section><!-- #testimonials -->
+
+    <!--==========================
+      Call To Action Section
+    ============================-->
+    <section id="call-to-action" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 text-center text-lg-left">
+            <h3 class="cta-title">Call To Action</h3>
+            <p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            <a class="cta-btn align-middle" href="#">Call To Action</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- #call-to-action -->
+
+    <!--==========================
+      Our Team Section
+    ============================-->
+    <section id="team" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Team</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="static/img/team-1.jpg" alt=""></div>
+              <div class="details">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="static/img/team-2.jpg" alt=""></div>
+              <div class="details">
+                <h4>Sarah Jhinson</h4>
+                <span>Product Manager</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="static/img/team-3.jpg" alt=""></div>
+              <div class="details">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="member">
+              <div class="pic"><img src="static/img/team-4.jpg" alt=""></div>
+              <div class="details">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      
-    <!-- Jumbotron -->
 
-    <!-- Heading -->
-    <div class="bg-primary mb-4">
-      <div class="container py-4">
-        <h3 class="text-white mt-2">Challenges</h3>
-        <!-- Breadcrumb -->
-        <nav class="d-flex mb-2">
-          <h6 class="mb-0">
-            <a href="http://localhost:8000" class="text-white-50"><u>Home</u></a>
-            <span class="text-white-50 mx-2"> > </span>
-            <a href="http://localhost:8000/challenges" class="text-white"><u>Challenges</u></a>
-          </h6>
-        </nav>
-        <!-- Breadcrumb -->
       </div>
-    </div>
-    <!-- Heading -->
-  </header>
+    </section><!-- #team -->
 
-  <!-- sidebar + content -->
-    
-          <!-- Collapsible wrapper -->
-         
-          <div class="container mt-4">
-            <div class="row">
-                <!-- Reto 1 -->
-                <div class="col-md-4">
-                    <div class="card challenge-card">
-                        <img src="https://assets-global.website-files.com/6318e6b2f58b77044875e67b/632b2eb47b58103aeac94c5f_62263643fcd1b61f8b78ab7b_sales-volume.png" class="card-img-top" alt="Reto 1">
-                        <div class="card-body">
-                            <h5 class="card-title">10 sales in a day</h5>
-                            <p class="card-text">Date: 2023-09-30</p>
-                            <p class="card-text">Tokens: 120</p>
-                            <p class="card-text">Sales Expert Badge</p>
-                            <!-- Agrega más información del reto si es necesario -->
-                            <a href="#" class="btn btn-primary">Participate</a>
-                        </div>
-                    </div>
-                </div>
-    
-                <!-- Reto 2 -->
-                <div class="col-md-4">
-                    <div class="card challenge-card">
-                        <img src="https://sloanreview.mit.edu/wp-content/uploads/2020/05/GEN-Rogelberg-Remote-Virtual-Zoom-Meeting-Video-Conference-1290x860-1.jpg" class="card-img-top" alt="Reto 2">
-                        <div class="card-body">
-                          <h5 class="card-title">Enter 5 Meetings</h5>
-                          <p class="card-text">Date: 2023-09-30</p>
-                          <p class="card-text">Tokens: 90</p>
-                          <p class="card-text">Collaborative Badge</p>
-                          <!-- Agrega más información del reto si es necesario -->
-                          <a href="#" class="btn btn-primary">Participate</a>
-                        </div>
-                    </div>
-                </div>
+    <!--==========================
+      Contact Section
+    ============================-->
+    <section id="contact" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact Us</h2>
+          <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+        </div>
 
-                <div class="col-md-4">
-                  <div class="card challenge-card">
-                      <img src="https://www.satorilaser.com/cdn/shop/articles/inclusivity-and-diversity-scaled-e1629221203580_1024x.jpg?v=1678137858" class="card-img-top" alt="Reto 2">
-                      <div class="card-body">
-                        <h5 class="card-title">Participate in a inclusivity talk</h5>
-                        <p class="card-text">Date: 2023-09-30</p>
-                        <p class="card-text">Tokens: 75</p>
-                        <p class="card-text">Inclusive Badge</p>
-                        <!-- Agrega más información del reto si es necesario -->
-                        <a href="#" class="btn btn-primary">Participate</a>
-                      </div>
-                  </div>
-              </div>
+        <div class="row contact-info">
 
-              <div class="col-md-4">
-                <div class="card challenge-card">
-                    <img src="https://www.philmckinney.com/content/images/wp-content/uploads/2013/05/new_ideas-e1464663568424.jpg" class="card-img-top" alt="Reto 2">
-                    <div class="card-body">
-                      <h5 class="card-title">Brainstorm Task</h5>
-                      <p class="card-text">Date: 2023-09-30</p>
-                      <p class="card-text">Tokens: 75</p>
-                      <p class="card-text">Creative Badge</p>
-                      <!-- Agrega más información del reto si es necesario -->
-                      <a href="#" class="btn btn-primary">Participate</a>
-                    </div>
-                </div>
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="ion-ios-location-outline"></i>
+              <h3>Address</h3>
+              <address>A108 Adam Street, NY 535022, USA</address>
             </div>
-
-            <div class="col-md-4">
-              <div class="card challenge-card">
-                  <img src="https://assets.entrepreneur.com/content/3x2/2000/1638079565-Untitleddesign-2021-11-28T100532825.png" class="card-img-top" alt="Reto 2">
-                  <div class="card-body">
-                    <h5 class="card-title">Do a Communication Skills Presentation </h5>
-                    <p class="card-text">Date: 2023-09-30</p>
-                    <p class="card-text">Tokens: 110</p>
-                    <p class="card-text">Excellence Badge</p>
-                    <!-- Agrega más información del reto si es necesario -->
-                    <a href="#" class="btn btn-primary">Participate</a>
-                  </div>
-              </div>
           </div>
 
           <div class="col-md-4">
-            <div class="card challenge-card">
-                <img src="https://economipedia.com/wp-content/uploads/Mentor-1.png" class="card-img-top" alt="Reto 2">
-                <div class="card-body">
-                    <h5 class="card-title">Mentor a Junior Member</h5>
-                    <p class="card-text">Date: 2023-10-15</p>
-                    <p class="card-text">Tokens: 80</p>
-                    <p class="card-text">Helper Badge</p>
-                    <!-- Agrega más información del reto si es necesario -->
-                    <a href="#" class="btn btn-primary">Participate</a>
-                </div>
+            <div class="contact-phone">
+              <i class="ion-ios-telephone-outline"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
             </div>
-        </div>
+          </div>
 
-        <div class="col-md-4">
-          <div class="card challenge-card">
-              <img src="https://elearningindustry.com/wp-content/uploads/2022/09/10-Ways-To-Improve-Employee-Productivity-In-The-Workplace.jpg" class="card-img-top" alt="Reto 2">
-              <div class="card-body">
-                  <h5 class="card-title">Productivity Task</h5>
-                  <p class="card-text">Date: 2023-10-15</p>
-                  <p class="card-text">Tokens: 150</p>
-                  <p class="card-text">Productivity Badge</p>
-                  <!-- Agrega más información del reto si es necesario -->
-                  <a href="#" class="btn btn-primary">Participate</a>
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="ion-ios-email-outline"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container mb-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="380" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+      </div>
+
+      <div class="container">
+        <div class="form">
+          <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div>
+          <form action="" method="post" role="form" class="contactForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <div class="validation"></div>
               </div>
-          </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card challenge-card">
-            <img src="https://foundr.com/wp-content/uploads/2021/09/Best-online-course-platforms.png" class="card-img-top" alt="Reto 2">
-            <div class="card-body">
-                <h5 class="card-title">Complete an online course </h5>
-                <p class="card-text">Date: 2023-10-15</p>
-                <p class="card-text">Tokens: 80</p>
-                <p class="card-text">Learner Badge</p>
-                <!-- Agrega más información del reto si es necesario -->
-                <a href="#" class="btn btn-primary">Participate</a>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                <div class="validation"></div>
+              </div>
             </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
+              <div class="validation"></div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <div class="validation"></div>
+            </div>
+            <div class="text-center"><button type="submit">Send Message</button></div>
+          </form>
         </div>
+
+      </div>
+    </section><!-- #contact -->
+
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        © Copyright <strong>Inspire</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+        -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
+  </footer><!-- #footer -->
 
-    <div class="col-md-4">
-      <div class="card challenge-card">
-          <img src="https://media.istockphoto.com/id/1302803769/es/vector/compartir-el-amor.jpg?s=612x612&w=0&k=20&c=epulNzQjz4l2ZGjUQeTHZmxScwsDAu_ik7vYvd4JAcQ=" class="card-img-top" alt="Reto 2">
-          <div class="card-body">
-              <h5 class="card-title">Volunteer in the community</h5>
-              <p class="card-text">Date: 2023-10-15</p>
-              <p class="card-text">Tokens: 100</p>
-              <p class="card-text">Helper Badge</p>
-              <!-- Agrega más información del reto si es necesario -->
-              <a href="#" class="btn btn-primary">Participate</a>
-          </div>
-      </div>
-  </div>
-    
-                <!-- Agrega más cartas de retos aquí -->
-            </div>
-        </div>
+  <a href="#" class="back-to-top" style="display: none;"><i class="fa fa-chevron-up"></i></a>
 
-        
+  <!-- JavaScript Libraries -->
+      <!-- Include jQuery from a CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="static/lib/jquery/jquery.min.js"></script>
+  <script src="static/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/lib/easing/easing.min.js"></script>
+  <script src="static/lib/superfish/hoverIntent.js"></script>
+  <script src="static/lib/superfish/superfish.min.js"></script>
+  <script src="static/lib/wow/wow.min.js"></script>
+  <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="static/lib/magnific-popup/magnific-popup.min.js"></script>
+  <script src="static/lib/sticky/sticky.js"></script>
 
-          
-      
+  <!-- Contact Form JavaScript File -->
+  <script src="static/contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="static/js/main.js"></script>
 
 
-          <!-- Pagination -->
-          
-                </a>
-              </li>
+
+<nav id="mobile-nav">
+        <ul class="" style="touch-action: pan-y;" id="">
+          <li class="menu-active"><a href="#body">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li class="menu-has-children"><i class="fa fa-chevron-down"></i><a href="" class="sf-with-ul">Drop Down</a>
+            <ul style="display: none;">
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
             </ul>
-          </nav>
-          <!-- Pagination -->
-        </div>
-      </div>
-    </div>            
-  </section>
-  </form>
-  <!-- sidebar + content -->
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><div id="mobile-body-overly"></div></body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Profile</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"  />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+
+    <style>
+      /* Estilo para las cartas de los retos */
+      .challenge-card {
+          width: 18rem;
+          margin: 1rem;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          padding: 1rem;
+      }
+
+      /* Estilo para la imagen del reto */
+      .challenge-card img {
+          max-width: 100%;
+          height: auto;
+      }
+  </style>
+      
+    
+    
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+      <!-- Jumbotron -->
+      <div class="p-3 text-center bg-white border-bottom">
+        <div class="container">
+          <div class="row gy-3">
+            <!-- Left elements -->
+            <div class="col-lg-2 col-sm-4 col-4">
+              <a href="https://github.com/linaballesteros/integrating-project-I" target="_blank" class="float-start">
+                <img src="https://github.com/linaballesteros/inspire-software-project/blob/main/WhatsApp%20Image%202023-08-23%20at%201.58.50%20PM.jpg?raw=true" height="120" />
+              </a>
+            </div>
+            <!-- Left elements -->
+    
+            <!-- Center elements -->
+            <div class="order-lg-last col-lg-10 col-sm-8 col-15">
+              <div class="d-flex float-end">
+                
+                
+                <a href="http://localhost:8000/my_profile" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My Profile</p> </a>
+                <a href="http://localhost:8000/ranking" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-bars m-1 me-md-2"></i><p class="d-none d-md-block mb-0">My Company</p> </a>
+                <a href="http://localhost:8000/shop" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-check-square m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Shop</p> </a>
+                <a href="http://localhost:8000/challenges" class="border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i class="fas fa-square m-1 me-md-2"></i><p class="d-none d-md-block mb-0">Challenges</p> </a>
+              </div>
+              </div>
+            <!-- Center elements -->
+    
+            <!-- Right elements -->
+          
+            <!-- Right elements -->
+          </div>
+        </div>
+      </div>
+    
+  <!-- Jumbotron -->
+
+  <!-- Heading -->
+  <div class="bg-primary mb-4">
+    <div class="container py-4">
+      <h3 class="text-white mt-2">Challenges</h3>
+      <!-- Breadcrumb -->
+      <nav class="d-flex mb-2">
+        <h6 class="mb-0">
+          <a href="http://localhost:8000" class="text-white-50"><u>Home</u></a>
+          <span class="text-white-50 mx-2"> > </span>
+          <a href="http://localhost:8000/challenges" class="text-white"><u>Challenges</u></a>
+        </h6>
+      </nav>
+      <!-- Breadcrumb -->
+    </div>
+  </div>
+  <!-- Heading -->
+</header>
+
+<!-- sidebar + content -->
+  
+        <!-- Collapsible wrapper -->
+       
+        <div class="container mt-4">
+          <div class="row">
+              <!-- Reto 1 -->
+              <div class="col-md-4">
+                  <div class="card challenge-card">
+                      <img src="https://assets-global.website-files.com/6318e6b2f58b77044875e67b/632b2eb47b58103aeac94c5f_62263643fcd1b61f8b78ab7b_sales-volume.png" class="card-img-top" alt="Reto 1">
+                      <div class="card-body">
+                          <h5 class="card-title">10 sales in a day</h5>
+                          <p class="card-text">Date: 2023-09-30</p>
+                          <p class="card-text">Tokens: 120</p>
+                          <p class="card-text">Sales Expert Badge</p>
+                          <!-- Agrega más información del reto si es necesario -->
+                          <a href="#" class="btn btn-primary">Participate</a>
+                      </div>
+                  </div>
+              </div>
+  
+              <!-- Reto 2 -->
+              <div class="col-md-4">
+                  <div class="card challenge-card">
+                      <img src="https://sloanreview.mit.edu/wp-content/uploads/2020/05/GEN-Rogelberg-Remote-Virtual-Zoom-Meeting-Video-Conference-1290x860-1.jpg" class="card-img-top" alt="Reto 2">
+                      <div class="card-body">
+                        <h5 class="card-title">Enter 5 Meetings</h5>
+                        <p class="card-text">Date: 2023-09-30</p>
+                        <p class="card-text">Tokens: 90</p>
+                        <p class="card-text">Collaborative Badge</p>
+                        <!-- Agrega más información del reto si es necesario -->
+                        <a href="#" class="btn btn-primary">Participate</a>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="card challenge-card">
+                    <img src="https://www.satorilaser.com/cdn/shop/articles/inclusivity-and-diversity-scaled-e1629221203580_1024x.jpg?v=1678137858" class="card-img-top" alt="Reto 2">
+                    <div class="card-body">
+                      <h5 class="card-title">Participate in a inclusivity talk</h5>
+                      <p class="card-text">Date: 2023-09-30</p>
+                      <p class="card-text">Tokens: 75</p>
+                      <p class="card-text">Inclusive Badge</p>
+                      <!-- Agrega más información del reto si es necesario -->
+                      <a href="#" class="btn btn-primary">Participate</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card challenge-card">
+                  <img src="https://www.philmckinney.com/content/images/wp-content/uploads/2013/05/new_ideas-e1464663568424.jpg" class="card-img-top" alt="Reto 2">
+                  <div class="card-body">
+                    <h5 class="card-title">Brainstorm Task</h5>
+                    <p class="card-text">Date: 2023-09-30</p>
+                    <p class="card-text">Tokens: 75</p>
+                    <p class="card-text">Creative Badge</p>
+                    <!-- Agrega más información del reto si es necesario -->
+                    <a href="#" class="btn btn-primary">Participate</a>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card challenge-card">
+                <img src="https://assets.entrepreneur.com/content/3x2/2000/1638079565-Untitleddesign-2021-11-28T100532825.png" class="card-img-top" alt="Reto 2">
+                <div class="card-body">
+                  <h5 class="card-title">Do a Communication Skills Presentation </h5>
+                  <p class="card-text">Date: 2023-09-30</p>
+                  <p class="card-text">Tokens: 110</p>
+                  <p class="card-text">Excellence Badge</p>
+                  <!-- Agrega más información del reto si es necesario -->
+                  <a href="#" class="btn btn-primary">Participate</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card challenge-card">
+              <img src="https://economipedia.com/wp-content/uploads/Mentor-1.png" class="card-img-top" alt="Reto 2">
+              <div class="card-body">
+                  <h5 class="card-title">Mentor a Junior Member</h5>
+                  <p class="card-text">Date: 2023-10-15</p>
+                  <p class="card-text">Tokens: 80</p>
+                  <p class="card-text">Helper Badge</p>
+                  <!-- Agrega más información del reto si es necesario -->
+                  <a href="#" class="btn btn-primary">Participate</a>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card challenge-card">
+            <img src="https://elearningindustry.com/wp-content/uploads/2022/09/10-Ways-To-Improve-Employee-Productivity-In-The-Workplace.jpg" class="card-img-top" alt="Reto 2">
+            <div class="card-body">
+                <h5 class="card-title">Productivity Task</h5>
+                <p class="card-text">Date: 2023-10-15</p>
+                <p class="card-text">Tokens: 150</p>
+                <p class="card-text">Productivity Badge</p>
+                <!-- Agrega más información del reto si es necesario -->
+                <a href="#" class="btn btn-primary">Participate</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card challenge-card">
+          <img src="https://foundr.com/wp-content/uploads/2021/09/Best-online-course-platforms.png" class="card-img-top" alt="Reto 2">
+          <div class="card-body">
+              <h5 class="card-title">Complete an online course </h5>
+              <p class="card-text">Date: 2023-10-15</p>
+              <p class="card-text">Tokens: 80</p>
+              <p class="card-text">Learner Badge</p>
+              <!-- Agrega más información del reto si es necesario -->
+              <a href="#" class="btn btn-primary">Participate</a>
+          </div>
+      </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card challenge-card">
+        <img src="https://media.istockphoto.com/id/1302803769/es/vector/compartir-el-amor.jpg?s=612x612&w=0&k=20&c=epulNzQjz4l2ZGjUQeTHZmxScwsDAu_ik7vYvd4JAcQ=" class="card-img-top" alt="Reto 2">
+        <div class="card-body">
+            <h5 class="card-title">Volunteer in the community</h5>
+            <p class="card-text">Date: 2023-10-15</p>
+            <p class="card-text">Tokens: 100</p>
+            <p class="card-text">Helper Badge</p>
+            <!-- Agrega más información del reto si es necesario -->
+            <a href="#" class="btn btn-primary">Participate</a>
+        </div>
+    </div>
+</div>
+  
+              <!-- Agrega más cartas de retos aquí -->
+          </div>
+      </div>
+
+      
+
+        
+    
+
+
+        <!-- Pagination -->
+        
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Pagination -->
+      </div>
+    </div>
+  </div>            
+</section>
+</form>
+<!-- sidebar + content -->
