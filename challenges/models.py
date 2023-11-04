@@ -44,4 +44,3 @@ class Reto(models.Model):
     cantidad_ganadores = models.IntegerField()
     
     
-    
