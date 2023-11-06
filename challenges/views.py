@@ -9,9 +9,6 @@ def home(request):
 def home2(request):
     return render(request, "home2.html")
 
-def my_profile(request):
-    return render(request, "profile.html")
-
 def ranking(request):
     return render(request, "ranking.html")
 
@@ -95,8 +92,5 @@ def edit_challenge(request, reto_id): # UPDATE RETO
 
 def login(request):
     return render(request, "login.html")
-
-def sign_up(request):
-    return render(request, "sign_up.html")
 
 # Create your views here.

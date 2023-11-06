@@ -32,10 +32,13 @@ urlpatterns = [
     path('edit_challenge/<int:reto_id>/', challenges_views.edit_challenge, name='edit_challenge'),
     path('view_challenges', challenges_views.view_challenges, name='view_challenges'),
     path('login', challenges_views.login, name='login'),
-    path('sign_up', challenges_views.sign_up, name='sign_up'),
     path('home2', challenges_views.home2, name='home2'),
     
     path('profile', accounts_views.profile, name='profile'),
+    path('sign_up_employer', accounts_views.sign_up_employer, name='sign_up_employer'),
+    path('sign_up_employee', accounts_views.sign_up_employee, name='sign_up_employee'),
+    path('sign_up_type', accounts_views.sign_up_type, name='sign_up_type'),
+    
     
     
 ]
