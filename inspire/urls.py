@@ -20,11 +20,22 @@ from challenges import views as challenges_views
 from accounts import views as accounts_views
 from django.conf.urls.static import static
 from django.conf import settings
+from Recompensa import views as Tienda_views
+
 
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', challenges_views.home2),
+    
+    #url de recompensa
+    path('Tienda',Tienda_views.Recompensas,name="Tienda"),
+    path('CrearRecompensa',Tienda_views.CrearRecompensas,name="CrearRecompensa"),
+    path('CrearRecompensa_',Tienda_views.CrearRecompensas_,name="CrearRecompensa_"),
+    path('VisualizarRecompensas',Tienda_views.VisualizarRecompensas,name="VisualizarRecompensas"),
+    
+   
     # path('my_profile', challenges_views.my_profile, name='my_profile'),
+    
     path('ranking', challenges_views.ranking, name='ranking'),
     path('challenges', challenges_views.challenges, name='challenges'),
     path('create_challenge', challenges_views.create_challenge, name='create_challenge'),
@@ -38,6 +49,7 @@ urlpatterns = [
     path('sign_up_employer', accounts_views.sign_up_employer, name='sign_up_employer'),
     path('sign_up_employee', accounts_views.sign_up_employee, name='sign_up_employee'),
     path('sign_up_type', accounts_views.sign_up_type, name='sign_up_type'),
+    
     
     
     
