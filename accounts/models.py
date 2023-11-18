@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import date
 from challenges.models import Reto
+from django.contrib.auth.models import AbstractUser, Group, Permission
 
 HABILIDADES_LISTA = [
     ("Comunicación efectiva", "Comunicación efectiva"),
@@ -26,21 +27,31 @@ HABILIDADES_LISTA = [
 ]
 
 class Empleado(models.Model):
-    nombre =  models.CharField(max_length=100)
-    email =  models.CharField(max_length=100)
-    contrasena =  models.CharField(max_length=100)
-    imagen = models.ImageField(upload_to="uploads/")
-    organizacion =  models.CharField(max_length=100)
-    cargo =  models.CharField(max_length=100)
-    tokens =  models.IntegerField()
+    nombre_empleado =  models.CharField(default="", max_length=100)
+    email =  models.CharField(default="", max_length=100)
+    contrasena =  models.CharField(default="", max_length=100)
+    imagen_empleado = models.ImageField(upload_to="uploads/")
+    organizacion_empleado =  models.CharField(default="", max_length=100)
+    cargo_empleado =  models.CharField(default="", max_length=100)
+    tokens_empleado =  models.IntegerField(default=0)
+    
+    def verificar_contrasena(self, contrasena_ingresada):
+    # Lógica para verificar la contraseña
+        return self.contrasena == contrasena_ingresada  
 
 class Empleador(models.Model):
-    nombre =  models.CharField(max_length=100)
-    email =  models.CharField(max_length=100)
-    contrasena =  models.CharField(max_length=100)
-    imagen = models.ImageField(upload_to="uploads/")
-    organizacion =  models.CharField(max_length=100)
+    nombre_empleador =  models.CharField(default="", max_length=100)
+    email =  models.CharField(default="", max_length=100)
+    contrasena =  models.CharField(default="", max_length=100)
+    imagen_empleador = models.ImageField(upload_to="uploads/")
+    organizacion_empleador =  models.CharField(default="", max_length=100)
+    
+    groups = models.ManyToManyField(Group, related_name='empleador_groups', blank=True)
+    user_permissions = models.ManyToManyField(Permission, related_name='empleador_user_permissions', blank=True)
+    def verificar_contrasena(self, contrasena_ingresada):
+        # Lógica para verificar la contraseña
+        return self.contrasena == contrasena_ingresada  
     
     
-    
-    
+
+

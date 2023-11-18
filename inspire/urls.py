@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', challenges_views.home2),
     # path('my_profile', challenges_views.my_profile, name='my_profile'),
     path('ranking', challenges_views.ranking, name='ranking'),
@@ -31,7 +31,6 @@ urlpatterns = [
     path('create_challenge_', challenges_views.create_challenge_, name='create_challenge_'),
     path('edit_challenge/<int:reto_id>/', challenges_views.edit_challenge, name='edit_challenge'),
     path('view_challenges', challenges_views.view_challenges, name='view_challenges'),
-    path('login', challenges_views.login, name='login'),
     path('home2', challenges_views.home2, name='home2'),
     
     path('profile', accounts_views.profile, name='profile'),
@@ -39,6 +38,12 @@ urlpatterns = [
     path('sign_up_employee', accounts_views.sign_up_employee, name='sign_up_employee'),
     path('sign_up_type', accounts_views.sign_up_type, name='sign_up_type'),
     
+    path('create_employee_', accounts_views.create_employee_, name='create_employee_'),
+    path('create_employer_', accounts_views.create_employer_, name='create_employer_'),
+    
+    path('login/', accounts_views.login, name='login'),
+    path('login_view', accounts_views.login_view, name='login_view'),
+
     
     
 ]
