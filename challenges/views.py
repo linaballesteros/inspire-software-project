@@ -1,36 +1,56 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+
 from .forms import ObjectForm
 from .models import Reto
 from django.contrib.auth.forms import AuthenticationForm
-from accounts.models import Empleado
+from accounts.models import Empleado, Empleador, RetosIniciados
 from django.contrib.auth.decorators import login_required
 
-
-def get_user_data(request):
-    user =  Empleado.objects.get(user=request.user)
-    
-    context = {
-        
-        'nombre_empleado' : user.nombre_empleado,
-        'imagen_empleado' : user.imagen_empleado,
-        'organizacion_empleado' : user.organizacion_empleado,
-        'cargo_empleado' : user.cargo_empleado,
-        'tokens_empleado' : user.tokens_empleado,
-        
-    }
-    
-    return context
-
+def get_user_type(request):
+    try:
+        empleado = Empleado.objects.get(user=request.user)
+        return 'empleado', {
+            'nombre_empleado': empleado.nombre_empleado,
+            'imagen_empleado': empleado.imagen_empleado,
+            'organizacion_empleado': empleado.organizacion_empleado,
+            'cargo_empleado': empleado.cargo_empleado,
+            'tokens_empleado': empleado.tokens_empleado,
+        }
+    except:
+        try:
+            empleador = Empleador.objects.get(user=request.user)
+            return 'empleador', {
+                'nombre_empleador': empleador.nombre_empleador,
+                'imagen_empleador': empleador.imagen_empleador,
+                'organizacion_empleador': empleador.organizacion_empleador,
+            }
+        except: # controlar el error en caso de que no se haya registrado y quiera ingresar al perfil
+            return None, None
 
 def ranking(request):
     return render(request, "ranking.html")
 
 def challenges(request):
-    return render(request, "challenges.html")
+    tipo_usuario, data_usuario = get_user_type(request)
+
+    retos = Reto.objects.all()  
+
+    
+    if tipo_usuario is None: # Ambas consultas no tienen resultados, está loggeado como admin o no se ha loggeado y no como empleador o empleado
+       return redirect("login_view")
+    
+    if tipo_usuario == 'empleado':
+       return render(request, 'challenges_employee.html', data_usuario)
+    
+    elif tipo_usuario == 'empleador':
+       return render(request, 'challenges_employer.html', data_usuario)
+
 
 def create_challenge(request):
+    
     return render(request, "create_challenge.html")
 
 def create_challenge_(request): # for publishing challenges
@@ -49,9 +69,20 @@ def create_challenge_(request): # for publishing challenges
     return render(request, 'create_challenge.html', {'form': form})
 
 def view_challenges(request):
+    tipo_usuario, data_usuario = get_user_type(request)
+
     retos = Reto.objects.all()  
     print(retos)
-    return render(request, "view_challenges.html", {'retos': retos})
+    print(tipo_usuario)
+    
+    if tipo_usuario is None: # Ambas consultas no tienen resultados, está loggeado como admin o no se ha loggeado y no como empleador o empleado
+       return redirect("login_view")
+    
+    if tipo_usuario == 'empleado':
+       return render(request, 'view_challenges_employee.html', {'data_usuario':data_usuario, 'retos': retos})
+    
+    elif tipo_usuario == 'empleador':
+        return render(request, "view_challenges.html", {'retos': retos})
 
 def edit_challenge(request, reto_id): # UPDATE RETO
     reto_a_editar = get_object_or_404(Reto, pk=reto_id)
@@ -85,7 +116,7 @@ def edit_challenge(request, reto_id): # UPDATE RETO
         reto_a_editar.cantidad_ganadores = cantidad_ganadores 
         
         
-        reto_a_editar.save() # save changes
+        reto_a_editar.save() # guardar los cambios
         
         return render(request, 'edit_challenge.html', {'reto_a_editar' : reto_a_editar})
     
@@ -100,4 +131,25 @@ def edit_challenge(request, reto_id): # UPDATE RETO
         return render(request, 'edit_challenge.html', {'reto_a_editar' : reto_a_editar})
 
 
-# Create your views here.
+def start_challenge(request, reto_id):
+    reto = get_object_or_404(Reto, id=reto_id)
+    empleado = request.user.empleado
+    
+     # ver si el reto ya fue iniciado antes de
+    if not RetosIniciados.objects.filter(empleado=empleado, reto=reto).exists():
+        RetosIniciados.objects.create(empleado=empleado, reto=reto)
+    
+    # Actualiza el estado del reto a "Iniciado" en el botón
+    reto.estado = 'INICIADO'
+    reto.save()
+
+    return HttpResponse(status=204)  # Respuesta sin contenido, solo para no tener errores para retornar
+
+def end_challenge(request, reto_id):
+    reto = get_object_or_404(Reto, id=reto_id)
+    
+    # Actualiza el estado del reto a "Iniciado"
+    reto.estado2 = 'FINALIZADO'
+    reto.save()
+
+    return HttpResponse(status=204)  # Respuesta sin contenido, solo para no tener errores para retornar

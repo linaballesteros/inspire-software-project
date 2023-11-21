@@ -76,31 +76,47 @@
                                                 {% if error_message %}
                                                 <p style="color: red">{{ error_message }}</p>
                                                 {% endif %}
-    
+
                                                 <div class="mb-4">
-                                                    <label for="name" class="form-label">Nombre del Empleador</label>
-                                                    <input type="text" id="nombre" class="form-control" name="nombre" value="{{ form.nombre.value }}" required>
+                                                  <label for="username" class="form-label">Nombre de Usuario</label>
+                                                  <input type="text" id="username" class="form-control" name="username" placeholder="Nombre de Usuario" required>
+                                                
                                                 </div>
     
                                                 <div class="mb-4">
-                                                    <label for="email" class="form-label">Correo electrónico</label>
-                                                    <input type="email" id="email" class="form-control" name="email"  value="{{ form.email.value }}" required>
+                                                    <label for="nombre_empleador" class="form-label">Nombre del Empleador</label>
+                                                    <input type="text" id="nombre_empleador" class="form-control" name="nombre_empleador" placeholder="Nombre del Empleador"required>
                                                 </div>
     
                                                 <div class="mb-4">
-                                                    <label for "password" class="form-label">Contraseña</label>
-                                                    <input type="password" id="contrasena" class="form-control" name="contrasena"  value="{{ form.contrasena.value }}" required>
+                                                  <label for="email" class="form-label">Correo electrónico</label>
+                                                  <input type="email" id="email_empleador" class="form-control" name="email_empleador" placeholder="Correo Electrónico" required>
+                                                  
+                                                </div>
+    
+                                                <div class="mb-4">
+                                                  <label for="password1" class="form-label">Contraseña</label>
+                                                  <input type="password" id="password1" class="form-control" name="password1" placeholder="Contraseña" required>
+                                                  
                                                     <!-- Instrucciones para una contraseña segura -->
                                                     <small class="form-text text-muted">La contraseña debe tener al menos 6 caracteres.</small>
                                                 </div>
+                                                
+                                                <div class="mb-4">
+                                                  <label for="password2" class="form-label">Confirmar Contraseña</label>
+                                                  <input type="password" id="password2" class="form-control" name="password2" placeholder="Confirmar Contraseña" required>
+                                                  <!-- Instrucciones para una contraseña segura -->
+                                                  <small class="form-text text-muted">Las contraseñas deben coincidir.</small>
+                                                </div>
     
                                                 <div class="mb-4">
-                                                  <label for="name" class="form-label">Organización</label>
-                                                  <input type="text" id="organizacion" class="form-control" name="organizacion"  value="{{ form.organizacion.value }}" required>
+                                                  <label for="organizacion_empleador" class="form-label">Organización</label>
+                                                  <input type="text" id="organizacion_empleador" class="form-control" name="organizacion_empleador" placeholder="Organización" required>
+                                               
                                               </div>
                                               <div class="mb-4">
-                                                <label for="image" class="form-label">Imagen</label>
-                                                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*"  value="{{ form.imagen.value }}" required>
+                                                <label for="imagen_empleador" class="form-label">Imagen</label>
+                                                <input type="file" class="form-control" id="imagen_empleador" name="imagen_empleador" accept="image/*"  required>
                                             </div>
     
                                                 <div class="form-check mb-4">

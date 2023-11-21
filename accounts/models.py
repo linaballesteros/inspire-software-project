@@ -33,14 +33,21 @@ class Empleado(models.Model):
     organizacion_empleado = models.CharField(max_length=100, default='organización')
     cargo_empleado = models.CharField(max_length=100, default='Empleado')
     tokens_empleado = models.IntegerField(default=0)
-  
+    tipo_usuario = models.CharField(max_length=100, default='empleado')
+    retos_activos = models.IntegerField(default=0)
+    retos_finalizados = models.IntegerField(default=0)
+    
+    def retos_iniciados(self):
+        return RetosIniciados.objects.filter(empleado=self)
 class Empleador(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     nombre_empleador =  models.CharField(default="", max_length=100)
-    email =  models.CharField(default="", max_length=100)
-    contrasena =  models.CharField(default="", max_length=100)
     imagen_empleador = models.ImageField(upload_to="uploads/")
     organizacion_empleador =  models.CharField(default="", max_length=100)
+    tipo_usuario = models.CharField(max_length=100, default='empleador')
 
-
+class RetosIniciados(models.Model):
+    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    reto = models.ForeignKey(Reto, on_delete=models.CASCADE)
+    fecha_inicio = models.DateTimeField(auto_now_add=True) # cuando inició el reto
 

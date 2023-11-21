@@ -32,6 +32,8 @@ urlpatterns = [
     path('create_challenge', challenges_views.create_challenge, name='create_challenge'),
     path('create_challenge_', challenges_views.create_challenge_, name='create_challenge_'),
     path('edit_challenge/<int:reto_id>/', challenges_views.edit_challenge, name='edit_challenge'),
+    path('start_challenge/<int:reto_id>/', challenges_views.start_challenge, name='start_challenge'),
+    path('end_challenge/<int:reto_id>/', challenges_views.end_challenge, name='end_challenge'),
     path('view_challenges', challenges_views.view_challenges, name='view_challenges'),
     
     path('profile', accounts_views.profile, name='profile'),

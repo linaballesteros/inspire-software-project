@@ -10,6 +10,8 @@ from accounts.models import Empleado
 from django.db import IntegrityError
 
 # Create your views here.
+
+
 def header(request):
     user = Empleado.objects.get(user=request.user)
     
