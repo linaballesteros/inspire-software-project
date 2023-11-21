@@ -1,0 +1,280 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Inspire</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+  
+    <!-- Favicons -->
+    <link href="static/img/favicon.png" rel="icon">
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+  
+    <!-- Bootstrap CSS File -->
+    <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Include jQuery from a CDN -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- static/libraries CSS Files -->
+    <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  
+  
+  
+    <!-- Main Stylesheet File -->
+    <link href="static/css/style.css" rel="stylesheet">
+  
+    <!-- =======================================================
+      Theme Name: Reveal
+      Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+  <style type="text/css" id="operaUserStyle"></style></head>
+  
+  <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
+  
+    {% include 'header.html' %}
+
+  <!--==========================
+    Intro Section
+  ============================-->
+  
+    <!--==========================
+      Intro Section
+    ============================-->
+   
+  
+    <main id="main">
+  
+   
+  
+      <!--==========================
+        Services Section
+      ============================-->
+      <br></br>
+      <section id="progress">
+        <div class="container">
+          <div class="section-header">
+            <h2>Progreso de la organización</h2>
+            <p>Aquí podrás visualizar diferentes gráficas y datos acerca del progreso de tu organización</p>
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-6">
+                <div class="box wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                    <div class="row">
+                        <input type="checkbox" id="checkboxEmpl" style="margin-left: 25px; height: 50px; width: 50px;" onchange="actualizarGraficaBarras('checkboxEmpl', 'checkboxOrg')">
+                        <h4 class="title">Mostrar progreso por empleado</a></h4>
+                    </div>
+                    <p class="description">Visualiza la cantidad de retos que ha realizado cada empleado.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="box wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                    <div class="row">
+                        <input type="checkbox" id="checkboxOrg" style="margin-left: 25px; height: 50px; width: 50px;" onchange="actualizarGraficaBarras('checkboxOrg', 'checkboxEmpl')">
+                        <h4 class="title">Mostrar progreso general</a></h4>
+                    </div>
+                    <p class="description">Visualiza la cantidad de retos que ha realizado tu organización.</p>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <select id="filtro" style="padding: 5px; width: 5000px;" onchange="actualizarGraficaBarras('checkboxEmpl', 'checkboxOrg')">
+                    <option value="" disabled selected>Filtrar segun tiempo</option>
+                    <option value="opcion1">Trimestral </option>
+                    <option value="opcion2">Semestral</option>
+                    <option value="opcion3">Anual</option>
+                </select>
+            </div>
+        <div id="graficaBarras"></div>
+        
+        <table id="miTabla">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Departamento</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Contenido de la tabla -->
+              <tr>
+                  <td>1</td>
+                  <td>Nombre 1</td>
+                  <td>Departamento 1</td>
+              </tr>
+              
+          </tbody>
+      </table>
+            
+  
+    </main>
+
+    <script>
+        function verifyCheckBox(checkedId, uncheckedId) {
+            var checkedCheckbox = document.getElementById(checkedId);
+            var uncheckedCheckbox = document.getElementById(uncheckedId);
+    
+            if (checkedCheckbox.checked) {
+                // Si el checkbox seleccionado está marcado, desactiva el otro checkbox
+                uncheckedCheckbox.checked = false;
+            }
+        }
+
+        function actualizarGraficaBarras(checkedId, uncheckedId) {
+            var checkedCheckbox = document.getElementById(checkedId);
+            var uncheckedCheckbox = document.getElementById(uncheckedId);
+    
+            if (checkedCheckbox.checked) {
+                // Si el checkbox seleccionado está marcado, desactiva el otro checkbox
+                uncheckedCheckbox.checked = false;
+            }
+
+            var checkboxEmpl = document.getElementById('checkboxEmpl');
+            var checkboxOrg = document.getElementById('checkboxOrg');
+            var filtroTiempo = document.getElementById('filtro');
+            var tiempoSeleccionado = filtroTiempo.value;
+            console.log(tiempoSeleccionado)
+            var tabla = document.getElementById('miTabla');
+            var tbody = tabla.getElementsByTagName('tbody')[0];
+
+        
+            var graficaSeleccionada = '';
+            
+
+            if (checkboxEmpl.checked) {
+                Plotly.purge('graficaBarras');
+                
+
+                
+                
+                tabla.style.display = 'table';
+                
+
+                
+            } else if (checkboxOrg.checked) {
+                tabla.style.display = 'none';
+                if (tiempoSeleccionado=="opcion1"){
+                    var datosBarras = {
+                        x: ['Categoría 1', 'Categoría 2', 'Categoría 3', 'Categoría 4'],
+                        y: [25, 40, 30, 50],
+                        type: 'bar'
+                    };
+
+                    // Configuración de la gráfica de barras
+                    var configuracionBarras = {
+                        title: 'Gráfica de Barras de ejemplo 1',
+                        xaxis: { title: 'Retos' },
+                        yaxis: { title: 'Completados' }
+                    };
+                    Plotly.newPlot('graficaBarras', [datosBarras], configuracionBarras);
+                    
+                    }
+                else if (tiempoSeleccionado=="opcion2"){
+                    var datosBarras = {
+                        x: ['Categoría 1', 'Categoría 2', 'Categoría 3', 'Categoría 4'],
+                        y: [25, 40, 30, 50],
+                        type: 'bar'
+                    };
+
+                    // Configuración de la gráfica de barras
+                    var configuracionBarras = {
+                        title: 'Gráfica de Barras de ejemplo 2',
+                        xaxis: { title: 'Retos' },
+                        yaxis: { title: 'Completados' }
+                    };
+                    Plotly.newPlot('graficaBarras', [datosBarras], configuracionBarras);
+                    graficaSeleccionada = 'Mostrar progreso general';
+                    }
+                else if (tiempoSeleccionado=="opcion3"){
+                    var datosBarras = {
+                        x: ['Categoría 1', 'Categoría 2', 'Categoría 3', 'Categoría 4'],
+                        y: [25, 40, 30, 50],
+                        type: 'bar'
+                    };
+
+                    // Configuración de la gráfica de barras
+                    var configuracionBarras = {
+                        title: 'Gráfica de Barras de ejemplo 3',
+                        xaxis: { title: 'Retos' },
+                        yaxis: { title: 'Completados' }
+                    };
+                    Plotly.newPlot('graficaBarras', [datosBarras], configuracionBarras);
+                    graficaSeleccionada = 'Mostrar progreso general';
+                    }
+            }
+        }
+    </script>
+  
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          © Copyright <strong>Inspire</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </footer><!-- #footer -->
+  
+    <a href="#" class="back-to-top" style="display: none;"><i class="fa fa-chevron-up"></i></a>
+  
+    <!-- JavaScript Libraries -->
+        <!-- Include jQuery from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/lib/jquery/jquery.min.js"></script>
+    <script src="static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/superfish/hoverIntent.js"></script>
+    <script src="static/lib/superfish/superfish.min.js"></script>
+    <script src="static/lib/wow/wow.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="static/lib/sticky/sticky.js"></script>
+  
+    <!-- Contact Form JavaScript File -->
+    <script src="static/contactform/contactform.js"></script>
+  
+    <!-- Template Main Javascript File -->
+    <script src="static/js/main.js"></script>
+  
+  
+  
+  <nav id="mobile-nav">
+          <ul class="" style="touch-action: pan-y;" id="">
+            <li class="menu-active"><a href="#body">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="menu-has-children"><i class="fa fa-chevron-down"></i><a href="" class="sf-with-ul">Drop Down</a>
+              <ul style="display: none;">
+                <li><a href="#">Drop Down 1</a></li>
+                <li><a href="#">Drop Down 3</a></li>
+                <li><a href="#">Drop Down 4</a></li>
+                <li><a href="#">Drop Down 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav><div id="mobile-body-overly"></div></body></html>
