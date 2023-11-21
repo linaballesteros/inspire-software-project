@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import ObjectForm
 from .models import Reto
 from django.contrib.auth.forms import AuthenticationForm
-from accounts.models import Empleado, Empleador, RetosIniciados
+from accounts.models import Empleado, Empleador, RetosIniciados, RetosFinalizados
 from django.contrib.auth.decorators import login_required
 
 def get_user_type(request):
@@ -133,6 +133,7 @@ def edit_challenge(request, reto_id): # UPDATE RETO
 
 def show_progress(request):
     return render(request, "show_progress.html")
+
 # Create your views here.
 def start_challenge(request, reto_id):
     reto = get_object_or_404(Reto, id=reto_id)
@@ -150,9 +151,18 @@ def start_challenge(request, reto_id):
 
 def end_challenge(request, reto_id):
     reto = get_object_or_404(Reto, id=reto_id)
+    empleado = request.user.empleado
     
-    # Actualiza el estado del reto a "Iniciado"
-    reto.estado2 = 'FINALIZADO'
+    
+    if RetosIniciados.objects.filter(empleado=empleado, reto=reto).exists(): # si ya fue iniciado, quitarlo de iniciados para actualizar la información del perfil
+        reto_iniciado = RetosIniciados.objects.get(empleado=empleado, reto=reto)
+        reto_iniciado.delete()
+        
+        if not RetosFinalizados.objects.filter(empleado=empleado, reto=reto).exists(): # ver si el reto ya fue finalizado antes de
+            RetosFinalizados.objects.create(empleado=empleado, reto=reto)
+    
+    # Actualiza el estado del reto a "Finalizado    "
+    reto.estado = 'FINALIZADO'
     reto.save()
 
     return HttpResponse(status=204)  # Respuesta sin contenido, solo para no tener errores para retornar

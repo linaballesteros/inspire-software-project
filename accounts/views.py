@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import Reto
 from django.http import Http404
 from django.contrib.auth.decorators import login_required
-from .models import Empleado, RetosIniciados    
+from .models import Empleado, RetosIniciados, RetosFinalizados     
 from django.db import IntegrityError
 from .models import Empleador
 
@@ -77,11 +77,23 @@ def profile(request):
        return redirect("login_view")
    
    if tipo_usuario == 'empleado':
+       # Para mostrar los retos que se encuentran en Estado = Iniciado en el perfil
        empleado = request.user.empleado
        retos_iniciados_usuario = RetosIniciados.objects.filter(empleado=empleado)
        retos_iniciados = Reto.objects.filter(id__in=retos_iniciados_usuario.values('reto_id'), estado='ACTIVO')
        cantidad_retos_iniciados = retos_iniciados_usuario.count()
-       return render(request, 'profile_employee.html', {'data_usuario':data_usuario, 'retos_iniciados':retos_iniciados, 'retos_iniciados_usuario':retos_iniciados_usuario, 'cantidad_retos_iniciados':cantidad_retos_iniciados})
+
+       
+       print(retos_iniciados)
+       print("-------")
+       print(retos_iniciados_usuario)
+       
+       retos_finalizados_usuario = RetosFinalizados.objects.filter(empleado=empleado)
+       retos_finalizados = Reto.objects.filter(id__in=retos_iniciados_usuario.values('reto_id'), estado='FINALIZADO')
+       cantidad_retos_finalizados = retos_finalizados_usuario.count()
+       
+       # Para mostrar los retos que se encuentran en estado = Finalizado en el perfil
+       return render(request, 'profile_employee.html', {'data_usuario':data_usuario, 'retos_iniciados':retos_iniciados, 'retos_iniciados_usuario':retos_iniciados_usuario, 'cantidad_retos_iniciados':cantidad_retos_iniciados, 'retos_finalizados':retos_finalizados, 'retos_finalizados_usuario':retos_finalizados_usuario, 'cantidad_retos_finalizados':cantidad_retos_finalizados})
    
    elif tipo_usuario == 'empleador':
        return render(request, 'profile_employer.html', data_usuario)

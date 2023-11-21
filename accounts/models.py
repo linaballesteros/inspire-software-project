@@ -51,3 +51,7 @@ class RetosIniciados(models.Model):
     reto = models.ForeignKey(Reto, on_delete=models.CASCADE)
     fecha_inicio = models.DateTimeField(auto_now_add=True) # cuando inició el reto
 
+class RetosFinalizados(models.Model):
+    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    reto = models.ForeignKey(Reto, on_delete=models.CASCADE)
+    fecha_finalizacion = models.DateTimeField(auto_now_add=True) # cuando finalizó el reto

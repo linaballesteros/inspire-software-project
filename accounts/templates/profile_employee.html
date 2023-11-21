@@ -38,6 +38,38 @@
   ======================================================= -->
 <style type="text/css" id="operaUserStyle"></style></head>
 
+<style>
+  #retosCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+#retosCard:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.reto-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.reto-nombre {
+    font-weight: bold;
+}
+
+.fecha-inicio {
+    color: #888;
+    font-size: 0.8em;
+}
+}
+
+</style>
+
 <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
 
   {% include 'header.html' %}
@@ -64,7 +96,7 @@
     
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4"  id="retosCard">
                         <div class="card-body text-center">
                             <img src={{imagen_empleado}} alt="avatar"
                                 class="rounded-circle img-fluid" style="width: 150px;">
@@ -79,19 +111,31 @@
                                                       </div>
                         </div>
                     </div>
-                    <div class="card mb-4 mb-lg-0">
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush rounded-3">
-                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                                    <i class="fas fa-user-alt m-1 me-md-2" style="color: #172F85;"></i>
-                                    <p class="mb-0" style="color: #172F85;">{{ user.email }}</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <div class="card mb-4 mb-lg-0" id="retosCard">
+                      <div class="card-body p-0">
+                              <li class="list-group-item p-3">
+                                  <div class="d-flex align-items-center">
+                                      <i class="fas fa-user-alt m-1 me-md-2" style="color: #172F85;"></i>
+                                      <div>
+                                          <h5 class="card-title" style="margin-bottom: 0; color: #172F85;">Insignias Obtenidas</h5>
+                                          <br></br>
+                                          <p class="card-text" style="margin-bottom: 0;">Cantidad: <span id="cantidadRetos">{{cantidad_retos_finalizados}}</span></p>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  
+                    
+                    
+                    
                 </div>
+                
+                
+                
                 <div class="col-lg-8">
-                    <div class="card mb-4">
+                    <div class="card mb-4"  id="retosCard">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
@@ -130,13 +174,13 @@
                             </div>
                             <hr>
                             <div class="row">
-                                <!-- Deja este espacio en blanco o agrega más contenido según tus necesidades -->
+                                <!-- para agregar más -->
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                          <div class="card mb-4">
+                          <div class="card mb-4"  id="retosCard">
                             <div class="card-body">
                                 <h5 class="card-title" style="color: #172F85;">Habilidades</h5>
                              
@@ -163,30 +207,46 @@
                             </div>
                         </div>
                         
-                </div>
-                <div class="col-md-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Retos Activos</h5>
-                      <p class="card-text">{{cantidad_retos_iniciados}}</p>
-                    </div>
-                  </div>
-                </div>
-                {% for reto_iniciado in retos_iniciados %}
-                <div>
-                    {{ reto_iniciado.reto.nombre }} - Iniciado el {{ reto_iniciado.retosiniciados.fecha_inicio }}
-                </div>
-                {% endfor %}
-                <div class="col-md-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Insignias Ganadas</h5>
-                      <p class="card-text">3</p>
-                    </div>
-                  </div>
-                </div>
-       
-              </div>
+                
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <div class="card mb-4" id="retosCard">
+                          <div class="card-body">
+                              <h5 class="card-title" style="color: #172F85;">Retos Activos</h5>
+                              <p class="card-text">Cantidad: <span id="cantidadRetos">{{cantidad_retos_iniciados}}</span></p>
+                              <div id="retosList">
+                                  {% for reto_iniciado in retos_iniciados_usuario %}
+                                  <div class="reto-item">
+                                      <span class="reto-nombre">{{ reto_iniciado.reto.nombre }}</span>
+                                      <span class="fecha-inicio">Iniciado el {{ reto_iniciado.fecha_inicio }}</span>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+               
+                  
+                  
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <div class="card mb-4" id="retosCard">
+                          <div class="card-body">
+                              <h5 class="card-title" style="color: #172F85;">Retos Finalizados</h5>
+                              <p class="card-text">Cantidad: <span id="cantidadRetos">{{cantidad_retos_finalizados}}</span></p>
+                              <div id="retosList">
+                                  {% for reto_finalizado in retos_finalizados_usuario %}
+                                  <div class="reto-item">
+                                      <span class="reto-nombre">{{ reto_finalizado.reto.nombre }}</span>
+                                      <span class="fecha-inicio">Finalizado el {{ reto_finalizado.fecha_finalizacion }}</span>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+                 
+                
               
               
        
