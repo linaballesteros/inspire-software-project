@@ -19,6 +19,7 @@ from django.urls import path, include
 
 from challenges import views as challenges_views
 from accounts import views as accounts_views
+from badges import views as badges_views
 from menu import views as menu_views
 
 from django.conf.urls.static import static
@@ -40,12 +41,18 @@ urlpatterns = [
     path('sign_up_employer', accounts_views.sign_up_employer, name='sign_up_employer'),
     path('sign_up_employee', accounts_views.sign_up_employee, name='sign_up_employee'),
     path('sign_up_type', accounts_views.sign_up_type, name='sign_up_type'),
+    path('show_progress', challenges_views.show_progress, name="show_progress"),
     
     path('create_employee_', accounts_views.create_employee_, name='create_employee_'),
     path('create_employer_', accounts_views.create_employer_, name='create_employer_'),
     
     path('login/', accounts_views.login, name='login'),
     path('login_view', accounts_views.login_view, name='login_view'),
+
+    path('badges', badges_views.main, name='main_page'),
+    path('create_badge', badges_views.create_badge, name="create_badge"),
+    path('edit_badge', badges_views.edit_badge, name="edit_badge"),
+    path('assign_badge', badges_views.assign_badge, name="assign_badge"),
     path('log_out', accounts_views.log_out, name='log_out'), 
     
     path('header', menu_views.header, name='header'),

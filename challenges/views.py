@@ -131,6 +131,9 @@ def edit_challenge(request, reto_id): # UPDATE RETO
         return render(request, 'edit_challenge.html', {'reto_a_editar' : reto_a_editar})
 
 
+def show_progress(request):
+    return render(request, "show_progress.html")
+# Create your views here.
 def start_challenge(request, reto_id):
     reto = get_object_or_404(Reto, id=reto_id)
     empleado = request.user.empleado
