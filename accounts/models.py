@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import date
 from challenges.models import Reto
-from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.contrib.auth.models import User
 
 HABILIDADES_LISTA = [
     ("Comunicación efectiva", "Comunicación efectiva"),
@@ -27,31 +27,20 @@ HABILIDADES_LISTA = [
 ]
 
 class Empleado(models.Model):
-    nombre_empleado =  models.CharField(default="", max_length=100)
-    email =  models.CharField(default="", max_length=100)
-    contrasena =  models.CharField(default="", max_length=100)
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    nombre_empleado = models.CharField(max_length=100, default='John Doe')
     imagen_empleado = models.ImageField(upload_to="uploads/")
-    organizacion_empleado =  models.CharField(default="", max_length=100)
-    cargo_empleado =  models.CharField(default="", max_length=100)
-    tokens_empleado =  models.IntegerField(default=0)
-    
-    def verificar_contrasena(self, contrasena_ingresada):
-    # Lógica para verificar la contraseña
-        return self.contrasena == contrasena_ingresada  
-
+    organizacion_empleado = models.CharField(max_length=100, default='organización')
+    cargo_empleado = models.CharField(max_length=100, default='Empleado')
+    tokens_empleado = models.IntegerField(default=0)
+  
 class Empleador(models.Model):
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     nombre_empleador =  models.CharField(default="", max_length=100)
     email =  models.CharField(default="", max_length=100)
     contrasena =  models.CharField(default="", max_length=100)
     imagen_empleador = models.ImageField(upload_to="uploads/")
     organizacion_empleador =  models.CharField(default="", max_length=100)
-    
-    groups = models.ManyToManyField(Group, related_name='empleador_groups', blank=True)
-    user_permissions = models.ManyToManyField(Permission, related_name='empleador_user_permissions', blank=True)
-    def verificar_contrasena(self, contrasena_ingresada):
-        # Lógica para verificar la contraseña
-        return self.contrasena == contrasena_ingresada  
-    
-    
+
 
 

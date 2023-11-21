@@ -40,55 +40,7 @@
 
 <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
 
-  <!--==========================
-    Top Bar
-  ============================-->
-  <section id="topbar" class="d-none d-lg-block">
-    <div class="container clearfix">
-      <div class="contact-info float-left">
-        <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">inspire@gmail.com</a>
-        <i class="fa fa-phone"></i> +57 301 574 4871 
-      </div>
-      <div class="social-links float-right">
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!--==========================
-    Header
-  ============================-->
-  <div id="header-sticky-wrapper" class="sticky-wrapper" style="height: 84px;">
-    <header id="header">
-      <div class="container">
-        <div id="logo" class="pull-left">
-          <h1><a href="#body" class="scrollto"><span>I</span>ns<span>p</span>ire</a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="#body"><img src="img/x|.png" alt="" title="" /></a>-->
-        </div>
-        <nav id="nav-menu-container">
-          <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li class="menu-active"><a href="#body">Inicio</a></li>
-          <li><a href="http://localhost:8000/sign_up_type">Registrarme</a></li>
-          <li><a href="http://localhost:8000/login_view">Iniciar Sesión</a></li>
-          <li><a href="http://localhost:8000/challenges">Retos</a></li>
-          <li><a href="http://localhost:8000/profile">Mi Perfil</a></li>
-          <li><a href="#team">Tienda</a></li>
-          <li class="menu-has-children"><a href="" class="sf-with-ul">Mi Empresa</a>
-            <ul style="display: none;">
-              <li><a href="#">Progreso de la Organización</a></li>
-              <li><a href="#">Información</a></li>
-              <li><a href="#">Analíticas</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Acerca De</a></li>
-        </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header></div><!-- #header -->
+  {% include 'header.html' %}
   
     <!--==========================
       Intro Section
@@ -126,13 +78,13 @@
 
     
                                                 <div class="mb-4">
-                                                    <label for="email" class="form-label">Correo electrónico</label>
-                                                    <input type="email" id="email" class="form-control" name="email"  required>
+                                                    <label for="username" class="form-label">Nombre de Usuario</label>
+                                                    <input type="text" id="username" class="form-control" name="username"  required>
                                                 </div>
     
                                                 <div class="mb-4">
-                                                    <label for "contrasena" class="form-label">Contraseña</label>
-                                                    <input type="contrasena" id="contrasena" class="form-control" name="contrasena"  required>
+                                                    <label for="password1" class="form-label">Contraseña</label>
+                                                    <input type="password" id="password1" class="form-control" name="password1" required>
                                                     <!-- Instrucciones para una contraseña segura -->
                                                 </div>
 
@@ -147,9 +99,15 @@
                                                       <label for="empleador" class="form-check-label">Empleador</label>
                                                   </div>
                                               </div>
+                                              <p class="text-center">¿No tienes una cuenta? <a href="sign_up_type">Crea una cuenta</a></p>
+
                                               
-                                              {% if error_message %}
-                                              <p style="color: red;">{{ error_message }}</p>
+                                              {% if messages %}
+                                              <div class="alert alert-danger">
+                                                  {% for message in messages %}
+                                                      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                                  {% endfor %}
+                                              </div>
                                           {% endif %}
                                                
     

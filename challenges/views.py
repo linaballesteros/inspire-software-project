@@ -1,28 +1,37 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from .forms import ObjectForm
 from .models import Reto
+from django.contrib.auth.forms import AuthenticationForm
+from accounts.models import Empleado
+from django.contrib.auth.decorators import login_required
 
-def home(request):
-    return render(request, "home.html")
 
-def home2(request):
-    return render(request, "home2.html")
+def get_user_data(request):
+    user =  Empleado.objects.get(user=request.user)
+    
+    context = {
+        
+        'nombre_empleado' : user.nombre_empleado,
+        'imagen_empleado' : user.imagen_empleado,
+        'organizacion_empleado' : user.organizacion_empleado,
+        'cargo_empleado' : user.cargo_empleado,
+        'tokens_empleado' : user.tokens_empleado,
+        
+    }
+    
+    return context
+
 
 def ranking(request):
     return render(request, "ranking.html")
-
-def shop(request):
-    return render(request, "shop.html")
 
 def challenges(request):
     return render(request, "challenges.html")
 
 def create_challenge(request):
     return render(request, "create_challenge.html")
-
-def edit_challenge(request):
-    return render(request, "edit_challenge.html")
 
 def create_challenge_(request): # for publishing challenges
     if request.method == 'POST':
@@ -90,7 +99,5 @@ def edit_challenge(request, reto_id): # UPDATE RETO
         form = ObjectForm()
         return render(request, 'edit_challenge.html', {'reto_a_editar' : reto_a_editar})
 
-def login(request):
-    return render(request, "login.html")
 
 # Create your views here.

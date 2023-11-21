@@ -16,22 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 from challenges import views as challenges_views
 from accounts import views as accounts_views
+from menu import views as menu_views
+
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', challenges_views.home2),
-    # path('my_profile', challenges_views.my_profile, name='my_profile'),
+    
     path('ranking', challenges_views.ranking, name='ranking'),
     path('challenges', challenges_views.challenges, name='challenges'),
     path('create_challenge', challenges_views.create_challenge, name='create_challenge'),
     path('create_challenge_', challenges_views.create_challenge_, name='create_challenge_'),
     path('edit_challenge/<int:reto_id>/', challenges_views.edit_challenge, name='edit_challenge'),
     path('view_challenges', challenges_views.view_challenges, name='view_challenges'),
-    path('home2', challenges_views.home2, name='home2'),
     
     path('profile', accounts_views.profile, name='profile'),
     path('sign_up_employer', accounts_views.sign_up_employer, name='sign_up_employer'),
@@ -43,8 +44,14 @@ urlpatterns = [
     
     path('login/', accounts_views.login, name='login'),
     path('login_view', accounts_views.login_view, name='login_view'),
-
+    path('log_out', accounts_views.log_out, name='log_out'), 
     
+    path('header', menu_views.header, name='header'),
+    path('', menu_views.home2),
+    path('home2', menu_views.home2, name='home2'),
+
+
+
     
 ]
 

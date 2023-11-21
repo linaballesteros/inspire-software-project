@@ -1,14 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
 from .models import Reto
+from django.contrib.auth.decorators import login_required
 from .models import Empleado
-from .models import Empleador
+from django.db import IntegrityError
+# from .models import Empleador
 
-from .forms import EmpleadoForm
-from .forms import EmpleadorForm
-from .forms import LoginForm
+# from .forms import EmpleadoForm, EmpleadoLoginForm
+# from .forms import EmpleadorForm
+# from .forms import LoginForm
+
 
 
 def profile(request):
@@ -23,57 +28,81 @@ def sign_up_employer(request):
 def sign_up_employee(request):
     return render(request, "sign_up_employee.html")
 
-def login(request):
+def login_(request):
     return render(request, "login.html")
 
 def login_view(request):
+    
     if request.method == 'POST':
-        print("entró al post")
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            print("entró a la validación del form")
-            email = form.cleaned_data['email']
-            contrasena = form.cleaned_data['contrasena']
+        print("pasó post uvu")
 
-            empleado = Empleado.objects.filter(email=email).first()
-            empleador = Empleador.objects.filter(email=email).first()
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password1'])
 
-            if empleado and empleado.verificar_contrasena(contrasena):
-                print("entro a verificar contaseña")
-                user = authenticate(request, email=email, password=contrasena)
-                print(user)
-            elif empleador and empleador.verificar_contrasena(contrasena):
-                user = authenticate(request, email=email, password=contrasena)
+        if user is None:
+            print("pasó nonee")
+            return render(request,'login.html', {'error': 'Usuario o Contraseña Incorrectos'})
+        else:
+            print(user)
+            login(request, user)
+            print("pasó loginnn(rq)")
 
-            else:
-                error_message = "Credenciales inválidas. Revisa tu correo o contraseña."
-                return render(request, 'login.html', {'form': form, 'error_message': error_message})
+    return render(request, 'login.html')
 
-            if user:
-                print("entró al login")
-                login(request, user)
-                # Redirigir a alguna página después del inicio de sesión
-                return redirect('view_challenges')
+@login_required
+def profile(request):
+    user = Empleado.objects.get(user=request.user)
+    
+    nombre_empleado = user.nombre_empleado
+    imagen_empleado = user.imagen_empleado,
+    organizacion_empleado = user.organizacion_empleado,
+    cargo_empleado = user.cargo_empleado,
+    tokens_empleado = user.tokens_empleado
+    
+    print(nombre_empleado)
+    print(tokens_empleado)
 
-    else:
-        form = LoginForm()
-
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'profile.html', {
+        'nombre_empleado' : user.nombre_empleado,
+        'imagen_empleado' : user.imagen_empleado,
+        'organizacion_empleado' : user.organizacion_empleado,
+        'cargo_empleado' : user.cargo_empleado,
+        'tokens_empleado' : user.tokens_empleado,
+    })
 
 def create_employee_(request): # for creating employees
     if request.method == 'POST':
-        form = EmpleadoForm(request.POST, request.FILES)
         print("posttt")
-        if form.is_valid():
-            new_object=form.save()
-            print(form.errors)
-            print("pasó el valid")
-        else:
-            print(form.errors)  
-    else:
-        form = EmpleadoForm()
+        if request.POST['password1'] == request.POST['password2']:
+            print("pasó el passwords")
+            try:
+                user = User.objects.create_user(request.POST['username'], 
+                                                password = request.POST['password1'], 
+                                                email = request.POST['email_empleado'])
+                user.save()
 
-    return render(request, 'sign_up_employee.html', {'form': form})
+                imagen_empleado = request.FILES.get('imagen_empleado')
+                
+                perfil = Empleado(user = user, 
+                                  nombre_empleado = request.POST['nombre_empleado'], 
+                                  imagen_empleado = imagen_empleado, 
+                                  organizacion_empleado = request.POST['organizacion_empleado'], 
+                                  cargo_empleado=request.POST['cargo_empleado'],
+                                  tokens_empleado = 0)
+                
+                perfil.save()
+                
+                login(request, user)
+                
+                messages.success(request, "Registro completado." )
+                print("pasó el login")
+                return redirect("home2")
+            
+            except IntegrityError:
+                return render(request, "sign_up_employee.html", {'error':'El nombre de usuario ya existe.'})
+        else: 
+            return render(request, "sign_up_employee.html", {'error':'Las contraseñas no coinciden.'})
+
+    return render(request, 'sign_up_employee.html')
 
 def create_employer_(request): # for creating employers
     if request.method == 'POST':
@@ -90,3 +119,7 @@ def create_employer_(request): # for creating employers
 
     return render(request, 'sign_up_employer.html', {'form': form})
 
+@login_required
+def log_out(request):
+    logout(request)
+    return redirect('home2')
