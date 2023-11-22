@@ -1076,7 +1076,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: #2dc899;
 }
 
-#miTabla {
+#miTabla1 {
   display: none;
   border-collapse: collapse;
   width: 90%;
@@ -1085,22 +1085,78 @@ body.mobile-nav-active #mobile-nav-toggle {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#miTabla th, #miTabla td {
+#miTabla1 th, #miTabla1 td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-#miTabla th {
-  background-color: #4CAF50;
+#miTabla1 th {
+  background-color: #081e5b;
   color: white;
 }
 
-#miTabla tbody tr:nth-child(even) {
+#miTabla1 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-#miTabla tbody tr:hover {
+#miTabla1 tbody tr:hover {
+  background-color: #ddd;
+}
+
+#miTabla2 {
+  display: none;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#miTabla2 th, #miTabla2 td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#miTabla2 th {
+  background-color: #081e5b;
+  color: white;
+}
+
+#miTabla2 tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#miTabla2 tbody tr:hover {
+  background-color: #ddd;
+}
+
+#miTabla3 {
+  display: none;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#miTabla3 th, #miTabla3 td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#miTabla3 th {
+  background-color: #081e5b;
+  color: white;
+}
+
+#miTabla3 tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#miTabla3 tbody tr:hover {
   background-color: #ddd;
 }
 

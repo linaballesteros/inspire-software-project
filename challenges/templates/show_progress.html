@@ -98,24 +98,56 @@
             </div>
         <div id="graficaBarras"></div>
         
-        <table id="miTabla">
+        <table id="miTabla1" style="display: none;">
           <thead>
               <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Departamento</th>
+                  <th>Nombre Del Empleado</th>
+                  <th>Retos Finalizados</th> 
               </tr>
           </thead>
           <tbody>
-              <!-- Contenido de la tabla -->
-              <tr>
-                  <td>1</td>
-                  <td>Nombre 1</td>
-                  <td>Departamento 1</td>
-              </tr>
-              
+            {% for nombre, num in trimestre_zipped %}
+            <tr>
+                <td>{{ nombre }}</td>
+                <td>{{ num }}</td>
+            </tr>
+            {% endfor %}
           </tbody>
       </table>
+
+      <table id="miTabla2" style="display: none;">
+        <thead>
+            <tr>
+                <th>Nombre Del Empleado</th>
+                <th>Retos Finalizados</th> 
+            </tr>
+        </thead>
+        <tbody>
+          {% for nombre, num in semestre_zipped %}
+          <tr>
+              <td>{{ nombre }}</td>
+              <td>{{ num }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+    <table id="miTabla3" style="display: none;">
+      <thead>
+          <tr>
+              <th>Nombre Del Empleado</th>
+              <th>Retos Finalizados</th> 
+          </tr>
+      </thead>
+      <tbody>
+        {% for nombre, num in anual_zipped %}
+        <tr>
+            <td>{{ nombre }}</td>
+            <td>{{ num }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
             
   
     </main>
@@ -144,36 +176,69 @@
             var checkboxOrg = document.getElementById('checkboxOrg');
             var filtroTiempo = document.getElementById('filtro');
             var tiempoSeleccionado = filtroTiempo.value;
-            console.log(tiempoSeleccionado)
-            var tabla = document.getElementById('miTabla');
-            var tbody = tabla.getElementsByTagName('tbody')[0];
-
-        
-            var graficaSeleccionada = '';
+            console.log(tiempoSeleccionado);
+            var tabla1 = document.getElementById('miTabla1');
+            var tabla2 = document.getElementById('miTabla2');
+            var tabla3 = document.getElementById('miTabla3');
             
+
+            var trimestre = ' {{ trimestre }} ';
+            var trimestre_cod = trimestre.replace(/&#x27;/g, '"');
+            trimestre = JSON.parse(trimestre_cod);
+            
+            
+            var semestre = " {{ semestre }}";
+            var semestre_cod = semestre.replace(/&#x27;/g, '"');
+            semestre = JSON.parse(semestre_cod);
+
+            var anual = " {{ anual }}";
+            var anual_cod = anual.replace(/&#x27;/g, '"');
+            anual = JSON.parse(anual_cod);
+            
+            
+        
+            
+           
 
             if (checkboxEmpl.checked) {
                 Plotly.purge('graficaBarras');
-                
+
+                if (tiempoSeleccionado=="opcion1"){
+                  tabla1.style.display = 'table';
+                  tabla2.style.display = 'none';
+                  tabla3.style.display = 'none';
+                }
+
+                if (tiempoSeleccionado=="opcion2"){
+                  tabla1.style.display = 'none';
+                  tabla2.style.display = 'table';
+                  tabla3.style.display = 'none';
+                }
+
+                if (tiempoSeleccionado=="opcion3"){
+                  tabla1.style.display = 'none';
+                  tabla2.style.display = 'none';
+                  tabla3.style.display = 'table';
+                }
 
                 
-                
-                tabla.style.display = 'table';
                 
 
                 
             } else if (checkboxOrg.checked) {
-                tabla.style.display = 'none';
+                tabla1.style.display = 'none';
+                tabla2.style.display = 'none';
+                tabla3.style.display = 'none';
                 if (tiempoSeleccionado=="opcion1"){
                     var datosBarras = {
-                        x: ['Categoría 1', 'Categoría 2', 'Categoría 3', 'Categoría 4'],
-                        y: [25, 40, 30, 50],
+                        x: Object.keys(trimestre),
+                        y: Object.values(trimestre),
                         type: 'bar'
                     };
 
                     // Configuración de la gráfica de barras
                     var configuracionBarras = {
-                        title: 'Gráfica de Barras de ejemplo 1',
+                        title: 'Datos del último trimestre',
                         xaxis: { title: 'Retos' },
                         yaxis: { title: 'Completados' }
                     };
@@ -182,14 +247,14 @@
                     }
                 else if (tiempoSeleccionado=="opcion2"){
                     var datosBarras = {
-                        x: ['Categoría 1', 'Categoría 2', 'Categoría 3', 'Categoría 4'],
-                        y: [25, 40, 30, 50],
+                        x: Object.keys(semestre),
+                        y: Object.values(semestre),
                         type: 'bar'
                     };
 
                     // Configuración de la gráfica de barras
                     var configuracionBarras = {
-                        title: 'Gráfica de Barras de ejemplo 2',
+                        title: 'Datos del último semestre',
                         xaxis: { title: 'Retos' },
                         yaxis: { title: 'Completados' }
                     };
@@ -198,19 +263,19 @@
                     }
                 else if (tiempoSeleccionado=="opcion3"){
                     var datosBarras = {
-                        x: ['Categoría 1', 'Categoría 2', 'Categoría 3', 'Categoría 4'],
-                        y: [25, 40, 30, 50],
+                        x: Object.keys(anual),
+                        y: Object.values(anual),
                         type: 'bar'
                     };
 
                     // Configuración de la gráfica de barras
                     var configuracionBarras = {
-                        title: 'Gráfica de Barras de ejemplo 3',
+                        title: 'Datos del último año',
                         xaxis: { title: 'Retos' },
                         yaxis: { title: 'Completados' }
                     };
                     Plotly.newPlot('graficaBarras', [datosBarras], configuracionBarras);
-                    graficaSeleccionada = 'Mostrar progreso general';
+                    
                     }
             }
         }

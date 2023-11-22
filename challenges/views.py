@@ -2,11 +2,12 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
+from datetime import datetime, timedelta, timezone
 from .forms import ObjectForm
 from .models import Reto
 from django.contrib.auth.forms import AuthenticationForm
 from accounts.models import Empleado, Empleador, RetosIniciados, RetosFinalizados
+from badges.models import Recibir_insignia, Insignia
 from django.contrib.auth.decorators import login_required
 
 def get_user_type(request):
@@ -133,8 +134,69 @@ def edit_challenge(request, reto_id): # UPDATE RETO
 
 
 def show_progress(request):
-    return render(request, "show_progress.html")
+    fecha_actual = datetime.now(timezone.utc)
 
+    
+    inicio_trimestre = fecha_actual - timedelta(days=90)
+    inicio_semestre = fecha_actual - timedelta(days=180)
+    inicio_anual = fecha_actual - timedelta(days=365)
+
+    # Filtra las insignias según las fechas
+    insignias = Recibir_insignia.objects.filter()
+
+    trimestre = {}
+    semestre = {}
+    anual = {}
+
+    trimestre_empleados = {}
+    semestre_empleados = {}
+    anual_empleados = {}
+
+    checked = []
+    for insignia in Insignia.objects.filter():
+        if str(insignia.Nombre) not in checked:
+            trimestre[str(insignia.Nombre)] = 0
+            semestre[str(insignia.Nombre)] = 0
+            anual[str(insignia.Nombre)] = 0
+            checked.append(str(insignia.Nombre))
+
+    checked = []
+    for empleado in Empleado.objects.filter():
+        if str(empleado.nombre_empleado) not in checked:
+            trimestre_empleados[str(empleado.nombre_empleado)] = 0
+            semestre_empleados[str(empleado.nombre_empleado)] = 0
+            anual_empleados[str(empleado.nombre_empleado)] = 0
+            checked.append(str(empleado.nombre_empleado))
+
+    for insignia in insignias:  
+        fecha_insignia_utc = insignia.fecha.replace(tzinfo=timezone.utc)
+        if fecha_insignia_utc >= inicio_trimestre:
+            trimestre[str(Insignia.objects.get(pk=insignia.insignia_id.pk).Nombre)] += 1
+            trimestre_empleados[str(Empleado.objects.get(pk=insignia.empleado_id.pk).nombre_empleado)] += 1
+        if fecha_insignia_utc >= inicio_semestre:
+            semestre[str(Insignia.objects.get(pk=insignia.insignia_id.pk).Nombre)] += 1
+            semestre_empleados[str(Empleado.objects.get(pk=insignia.empleado_id.pk).nombre_empleado)] += 1
+        if fecha_insignia_utc >= inicio_anual:
+            anual[str(Insignia.objects.get(pk=insignia.insignia_id.pk).Nombre)] += 1
+            anual_empleados[str(Empleado.objects.get(pk=insignia.empleado_id.pk).nombre_empleado)] += 1
+    
+    trimestre_empleados_nombres = list(trimestre_empleados.keys())
+    trimestre_empleados_cantidad = list(trimestre_empleados.values())
+
+    trimestre_zipped = zip(trimestre_empleados_nombres, trimestre_empleados_cantidad)
+
+    semestre_empleados_nombres = list(semestre_empleados.keys())
+    semestre_empleados_cantidad = list(semestre_empleados.values())
+
+    semestre_zipped = zip(semestre_empleados_nombres, semestre_empleados_cantidad)
+
+    anual_empleados_nombres = list(anual_empleados.keys())
+    anual_empleados_cantidad = list(anual_empleados.values())
+
+    anual_zipped = zip(anual_empleados_nombres, anual_empleados_cantidad)
+
+
+    return render(request, "show_progress.html", {'trimestre': trimestre, 'semestre': semestre, 'anual': anual, "trimestre_zipped":trimestre_zipped, "semestre_zipped":semestre_zipped, "anual_zipped":anual_zipped})
 # Create your views here.
 def start_challenge(request, reto_id):
     reto = get_object_or_404(Reto, id=reto_id)
