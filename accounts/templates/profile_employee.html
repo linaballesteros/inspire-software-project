@@ -65,7 +65,17 @@
 .fecha-inicio {
     color: #888;
     font-size: 0.8em;
+
 }
+.animated-section {
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+  transition: opacity 1s, transform 1s;
+}
+
+.animated-section.active {
+  opacity: 1; /* Se hace visible */
+  transform: translateY(0); /* Se coloca en su posición original */
 }
 
 </style>
@@ -87,8 +97,8 @@
         Services Section
       ============================-->
       <br></br>
-      <section style="background-color: #EEF0F1; font-family: 'Montserrat', sans-serif;" id="services">
-        <div class="container py-5">
+      <section class="animated-section" style="background-color: #EEF0F1; font-family: 'Montserrat', sans-serif;" id="services">
+        <!-- ... (resto del código) ... -->        <div class="container py-5">
             <div class="section-header">
                 <h2 class="text-center" style="color: #172F85;">Perfil</h2>
                 <p class="text-center" style="color: #7F88BC;">Administra tu cuenta</p>
@@ -300,6 +310,12 @@
   
     <!-- Template Main Javascript File -->
     <script src="static/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".animated-section").addClass("active");
+    });
+</script>
   
   
   

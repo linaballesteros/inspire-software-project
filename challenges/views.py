@@ -2,6 +2,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+
+from .forms import ObjectForm
+from .models import Reto
+from django.contrib.auth.forms import AuthenticationForm
+from accounts.models import Empleado, Empleador, RetosIniciados, RetosFinalizados
+from django.contrib.auth.decorators import login_required
+
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from datetime import datetime, timedelta, timezone
 from .forms import ObjectForm
 from .models import Reto
@@ -63,6 +74,7 @@ def create_challenge_(request): # for publishing challenges
             new_object=form.save()
             print(form.errors)
             print("pasó el valid")
+            return redirect(view_challenges)
         else:
             print(form.errors)  
     else:
@@ -126,7 +138,7 @@ def edit_challenge(request, reto_id): # UPDATE RETO
          reto_a_eliminar = get_object_or_404(Reto, pk=reto_id)
          reto_a_eliminar.delete()
          
-         return render(request, 'view_challenges.html', {'reto_a_editar' : reto_a_editar}) 
+         return redirect("view_challenges")
        
     else:
         form = ObjectForm()
@@ -197,6 +209,8 @@ def show_progress(request):
 
 
     return render(request, "show_progress.html", {'trimestre': trimestre, 'semestre': semestre, 'anual': anual, "trimestre_zipped":trimestre_zipped, "semestre_zipped":semestre_zipped, "anual_zipped":anual_zipped})
+    
+
 # Create your views here.
 def start_challenge(request, reto_id):
     reto = get_object_or_404(Reto, id=reto_id)

@@ -122,24 +122,24 @@
                       <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ reto.descripcion }}</p>
                       <ul class="list-group list-group-flush">
     <!-- ... tu código existente ... -->
-<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
-  <span style="font-weight: bold;">Fecha de Creación:</span> {{ reto.fecha_publicacion }}
-</li>
-<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
-  <span style="font-weight: bold;">Fecha de Vencimiento:</span> {{ reto.fecha_vencimiento }}
-</li>
-<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
-  <span style="font-weight: bold;">Tokens:</span> {{ reto.tokens }}
-</li>
-<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
-  <span style="font-weight: bold;">Límite de Participantes:</span> {{ reto.limite_participantes }}
-</li>
-<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
-  <span style="font-weight: bold;">Límite de Ganadores:</span> {{ reto.cantidad_ganadores }}
-</li>
-<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
-  <span style="font-weight: bold;">Insignia a Obtener:</span> {{ reto.categoria_insignia }}
-</li>
+                    <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+                      <span style="font-weight: bold;">Fecha de Creación:</span> {{ reto.fecha_publicacion }}
+                    </li>
+                    <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+                      <span style="font-weight: bold;">Fecha de Vencimiento:</span> {{ reto.fecha_vencimiento }}
+                    </li>
+                    <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+                      <span style="font-weight: bold;">Tokens:</span> {{ reto.tokens }}
+                    </li>
+                    <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+                      <span style="font-weight: bold;">Límite de Participantes:</span> {{ reto.limite_participantes }}
+                    </li>
+                    <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+                      <span style="font-weight: bold;">Límite de Ganadores:</span> {{ reto.cantidad_ganadores }}
+                    </li>
+                    <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+                      <span style="font-weight: bold;">Insignia a Obtener:</span> {{ reto.categoria_insignia }}
+                    </li>
 <!-- ... tu código existente ... -->
 
                       </ul>
@@ -150,30 +150,24 @@
                             {% csrf_token %}
                           
                                 <button type="submit" class="btn btn-primary iniciar-reto-btn" style="font-family: 'Montserrat', sans-serif;">
-                                    {% if reto.estado == 'INICIADO' %}
-                                        Reto Iniciado
-                                    {% else %}
+                                    
                                         Iniciar Reto
-                                    {% endif %}
+                                   
                                 </button>
                                 
-                            
+                                {% endif %} 
                         </form>
-                      
+                        {% if reto.id %}
                         <form id="finalizar-reto-form" method="post" action="{% url 'end_challenge' reto_id=reto.id %}">
                             {% csrf_token %}
                             
                                 <button type="submit" class="btn btn-primary finalizar-reto-btn " style="font-family: 'Montserrat', sans-serif;">
-                                    {% if reto.estado == 'FINALIZADO' %}
-                                    Reto Finalizado
-                                    {% else %}
-                                      Finalizar Reto
-                                    {% endif %}
+                                  Finalizar Reto
                                 </button>
-                    
+                                {% endif %}
                 </form>
                     </div>
-                    {% endif %}
+                   
                   </div>
                 </div>
               {% endfor %}
@@ -231,35 +225,7 @@
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="js/tokens.js"></script>
-        <script>
-
-          // Obtener la cantidad de tokens del usuario
-function getTokens() {
-  // Obtener el usuario actual
-  const user = django.contrib.auth.get_user(document.querySelector("body"));
-
-  // Obtener la cantidad de tokens del usuario
-  const tokens = data_user.empleado_tokens;
-
-  return tokens;
-}
-
-// Actualizar el contenido del elemento HTML
-function updateTokens() {
-  // Obtener la cantidad de tokens del usuario
-  const tokens = getTokens();
-
-  // Obtener el elemento HTML que mostrará la cantidad de tokens
-  const element = document.querySelector("#tokens");
-
-  // Actualizar el contenido del elemento HTML
-  element.textContent = tokens;
-}
-
-// Ejecutar el script al cargar la página
-document.addEventListener("DOMContentLoaded", updateTokens);
-
-        </script>
+   
 
       
       <script>

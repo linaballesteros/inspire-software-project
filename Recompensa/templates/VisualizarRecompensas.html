@@ -1,139 +1,99 @@
 <html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Inspire</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-    <meta charset="utf-8">
-    <title>Inspire</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-  
-    <!-- Favicons -->
-    <link href="static/img/favicon.png" rel="icon">
-    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
-  
-    <!-- Bootstrap CSS File -->
-    <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Include jQuery from a CDN -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- static/libraries CSS Files -->
-    <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <!-- Favicons -->
+  <link href="medal.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Include jQuery from a CDN -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!-- static/libraries CSS Files -->
+  <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+
+
+  <!-- Main Stylesheet File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Reveal
+    Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+<style type="text/css" id="operaUserStyle"></style>
+
+<style>
+
+  .badge {
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #0d2e8a;
+    font-size: 20px; 
+    padding: 15px; 
+  }
+  .custom-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease; 
+  }
   
+  .custom-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  
+  }
   
-    <!-- Main Stylesheet File -->
-    <link href="static/css/style.css" rel="stylesheet">
-    <style>
-        /* Estilo para la fuente del formulario */
-        form {
-            font-family: 'Montserrat', sans-serif; /* Fuente de Google 'Montserrat' o la fuente que desees */
-        }
+  .custom-card-header {
+    background-color: #f8f9fa;
+    font-weight: bold;  /* Título en negrita */
+    border-top-left-radius: 10px;  /* Bordes semi-circulares en la esquina superior izquierda */
+    border-top-right-radius: 10px; /* Bordes semi-circulares en la esquina superior derecha */
+  }
+    .custom-card-footer {
+      display: flex;
+      justify-content: space-between;
+    }
     
-        /* Estilo para los labels */
-        label {
-            font-family: 'Montserrat', sans-serif; /* Fuente de Google 'Montserrat' o la fuente que desees */
-            font-weight: bold; /* Opcional: Haz que los labels sean negritas */
-        }
-        .btn-primary {
-            background-color: #003366 !important; /* Azul marino más claro */
-            border-color: #003366 !important; /* Color del borde igual al fondo */
-            color: #fff !important; /* Texto en blanco */
-        }
+    .iniciar-reto-btn,
+    .finalizar-reto-btn {
+      background-color: #50D8AF !important;
+      width: 100%;  /* Ajusta el ancho de los botones para dejar espacio a la izquierda y a la derecha */
+      transition: box-shadow 0.3s ease;  /* Transición suave para la sombra al pasar el cursor */
+      border: none
+    }
     
-        .btn-primary:hover {
-            background-color: #005b96 !important; /* Cambia el color de fondo al pasar el cursor por encima */
-            border-color: #005b96 !important; /* Cambia el color del borde al pasar el cursor por encima */
-        }
-        
-          /* Estilo para las cartas de los retos */
-          .challenge-card {
-              width: 15rem;
-              margin: 3rem;
-              border: 8px solid #e0e0e0;
-              border-radius: 20px;
-              padding: 5rem;
-          }
+    .iniciar-reto-btn:hover,
+    .finalizar-reto-btn:hover {
+      background-color: #0D2E8A !important;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Agrega una sombra al pasar el cursor */
+    }
   
-          /* Estilo para la imagen del reto */
-          .challenge-card img {
-              max-width: 150%;
-              height: auto;
-          }
-      </style>
-    </style>
-    
-    
+
+</style>
+</head>
+
+<body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
+
+  {% if user_type == 'empleado' %}
+    {% include 'header.html' %}
+    {%else%}
+    {% include 'header2.html' %}
+    {%endif %}
   
-    <!-- =======================================================
-      Theme Name: Reveal
-      Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
-      Author: BootstrapMade.com
-      License: https://bootstrapmade.com/license/
-    ======================================================= -->
-  <style type="text/css" id="operaUserStyle"></style></head>
-  
-  <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
-  
-    <!--==========================
-      Top Bar
-    ============================-->
-    <section id="topbar" class="d-none d-lg-block">
-      <div class="container clearfix">
-        <div class="contact-info float-left">
-          <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">inspire@gmail.com</a>
-          <i class="fa fa-phone"></i> +57 301 574 4871 
-        </div>
-        <div class="social-links float-right">
-          <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-          <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-          <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        </div>
-      </div>
-    </section>
-  
-    <!--==========================
-      Header
-    ============================-->
-    <div id="header-sticky-wrapper" class="sticky-wrapper" style="height: 84px;">
-      <header id="header">
-        <div class="container">
-          <div id="logo" class="pull-left">
-            <h1><a href="#body" class="scrollto"><span>I</span>ns<span>p</span>ire</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-          </div>
-          <nav id="nav-menu-container">
-            <ul class="nav-menu sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li class="menu-active"><a href="http://localhost:8000">Inicio</a></li>
-            <li><a href="#about">Iniciar Sesión</a></li>
-            <li class="http://localhost:8000/view_challenges"><a href="" class="sf-with-ul">Retos</a>
-                <ul style="display: none;">
-                  <li><a href="http://localhost:8000/create_challenge">Crear Reto</a></li>
-                  <li><a href="http://localhost:8000/view_challenges">Ver Retos</a></li>
-                </ul>
-              </li>
-            <li><a href="#portfolio">Mi Perfil</a></li>
-            <li><a href="http://localhost:8000/Tienda">Tienda</a></li>
-            <li class="menu-has-children"><a href="" class="sf-with-ul">Mi Empresa</a>
-              <ul style="display: none;">
-                <li><a href="#">Progreso de la Organización</a></li>
-                <li><a href="#">Información</a></li>
-                <li><a href="#">Analíticas</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Acerca De</a></li>
-          </ul>
-        </nav><!-- #nav-menu-container -->
-      </div>
-    </header></div><!-- #header -->
   
     <!--==========================
       Intro Section
@@ -150,20 +110,23 @@
       <section id="retos-disponibles" class="bg-light py-5">
         <div class="container">
           <div class="section-header">
-            <h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">Retos Disponibles</h2>
-            <p class="text-center" style="font-family: 'Montserrat', sans-serif;">Aquí puedes ver los retos disponibles.</p>
+            <h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">Recompensas Disponibles</h2>
+            <div id="tokens" class="badge badge-primary badge-lg badge-light-blue custom-card" style="font-size: 20px; padding: 10px; font-family: 'Montserrat', sans-serif;">
+              &#x25C8; Tus  Tokens: {{ data_user.tokens_empleado }}🌟
+            </div>    
+            <p class="text-center" style="font-family: 'Montserrat', sans-serif;">Aquí puedes ver las recompensas disponibles.</p>
           </div>
       
           <div class="row">
             {% for recompensa in Recompensas %}
-              <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                <div class="card mb-4 h-100">
-                  <div class="card-header">
+            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+              <div class="card mb-4 h-100 custom-card">
+                <div class="card-header custom-card-header">
                     <h5 class="card-title" style="font-family: 'Montserrat', sans-serif;">{{ recompensa.nombre }}</h5>
                   </div>
                   <div class="card-body">
                     {%if recompensa.logo == "Almuerzo"%}
-                    <img src="https://i.ibb.co/r0pKXwZ/Almuerzo.jpg",class="card-img-top" alt="{{recompensa.logo}}" width="200" height="200">>
+                    <img src="https://i.ibb.co/r0pKXwZ/Almuerzo.jpg",class="card-img-top" alt="{{recompensa.logo}}" width="200" height="200">
                     {%endif%}
                     {%if recompensa.logo == "Dinero"%}
                     <img src="https://i.ibb.co/KW3Fc3Q/Dinero.jpg",class="card-img-top" alt="{{recompensa.logo}}" width="200" height="200">
@@ -179,13 +142,13 @@
                     {%endif%}
                     <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ recompensa.descripcion }}</p>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Tonkens: {{ recompensa.tokens}}</li>
+                      <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Tokens: {{ recompensa.tokens}}</li>
                       
                     </ul>
                   </div>
                   {% if recompensa.id %}
                   <div class="card-footer">
-                    <a href="" class="btn btn-primary">
+                    <a href="" class="btn btn-primary iniciar-reto-btn">
                       Comprar
                     </a>
                   </div>

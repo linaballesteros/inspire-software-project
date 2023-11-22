@@ -36,25 +36,36 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-<style type="text/css" id="operaUserStyle"></style></head>
+<style type="text/css" id="operaUserStyle"></style>
+<style>
+
+
+    .animated-section {
+      opacity: 0; /* Inicialmente invisible */
+      transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+      transition: opacity 1s, transform 1s;
+    }
+    
+    .animated-section.active {
+      opacity: 1; /* Se hace visible */
+      transform: translateY(0); /* Se coloca en su posición original */
+    }
+  
+</style>
+
+</head>
 
 <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
 
   {% include 'header.html' %}
-    <!--==========================
-      Intro Section
-    ============================-->
+
    
   
     <main id="main">
   
-   
-  
-      <!--==========================
-        Services Section
-      ============================-->
+
       <br></br>
-      <section id="services">
+      <section class="animated-section" style="font-family: 'Montserrat', sans-serif;" id="services">
         <div class="container">
             <div class="section-header">
                 <h2>Registrar Cuenta de Empleado</h2>
@@ -157,17 +168,7 @@
         </div>
     </section>
     
-    
-  
-      <!--==========================
-        Clients Section 
-      ============================-->
-  
-  
-      <!--==========================
-        Our Portfolio Section
-      ============================-->
-
+ 
   
     <!--==========================
       Footer
@@ -196,7 +197,12 @@
     <!-- Template Main Javascript File -->
     <script src="static/js/main.js"></script>
   
-  
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".animated-section").addClass("active");
+        });
+    </script>
   
   <nav id="mobile-nav">
           <ul class="" style="touch-action: pan-y;" id="">

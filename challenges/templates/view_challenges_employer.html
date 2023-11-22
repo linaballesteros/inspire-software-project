@@ -36,11 +36,47 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-<style type="text/css" id="operaUserStyle"></style></head>
+<style type="text/css" id="operaUserStyle"></style>
+<style>
+  .custom-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease; 
+  }
+  
+  .custom-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  
+  }
+  
+  .custom-card-header {
+    background-color: #f8f9fa;
+    font-weight: bold;  /* Título en negrita */
+    border-top-left-radius: 10px;  /* Bordes semi-circulares en la esquina superior izquierda */
+    border-top-right-radius: 10px; /* Bordes semi-circulares en la esquina superior derecha */
+  }
+    .custom-card-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+       .iniciar-reto-btn,
+      .finalizar-reto-btn {
+        background-color: #50D8AF !important;
+        width: 100%;  /* Ajusta el ancho de los botones para dejar espacio a la izquierda y a la derecha */
+        transition: box-shadow 0.3s ease;  /* Transición suave para la sombra al pasar el cursor */
+        border: none
+      }
+      
+      .iniciar-reto-btn:hover,
+      .finalizar-reto-btn:hover {
+        background-color: #0D2E8A !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Agrega una sombra al pasar el cursor */
+      }
+</style>
+</head>
 
 <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
 
-  {% include 'header.html' %}
+  {% include 'header2.html' %}
   
     <!--==========================
       Intro Section
@@ -64,8 +100,8 @@
           <div class="row">
             {% for reto in retos %}
               <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                <div class="card mb-4 h-100">
-                  <div class="card-header">
+                <div class="card mb-4 h-100 custom-card">
+                  <div class="card-header custom-card-header">
                     <h5 class="card-title" style="font-family: 'Montserrat', sans-serif;">{{ reto.nombre }}</h5>
                   </div>
                   <div class="card-body">
@@ -82,7 +118,7 @@
                   </div>
                   {% if reto.id %}
                   <div class="card-footer">
-                    <a href="{% url 'edit_challenge' reto_id=reto.id %}" class="btn btn-primary">
+                    <a href="{% url 'edit_challenge' reto_id=reto.id %}" class="btn btn-primary iniciar-reto-btn">
                       Editar Reto
                     </a>
                   </div>

@@ -36,11 +36,46 @@
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
-<style type="text/css" id="operaUserStyle"></style></head>
+<style type="text/css" id="operaUserStyle"></style>
+<style>
+  body {
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Aplicar Montserrat a todos los elementos dentro de la sección */
+  #create-challenge * {
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  /*color del botón a  */
+  #create-challenge button.btn-primary {
+      background-color: #50D8AF; /* Color verde, puedes ajustar este valor según tus preferencias */
+      border: 1px solid #50D8AF; /* Borde verde */
+  }
+
+  /* Cambiar el color del texto del botón a blanco para que sea legible */
+  #create-challenge button.btn-primary:hover {
+      color: white;
+  }
+  .animated-section {
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+    transition: opacity 1s, transform 1s;
+  }
+  
+  .animated-section.active {
+    opacity: 1; /* Se hace visible */
+    transform: translateY(0); /* Se coloca en su posición original */
+  }
+</style>
+
+
+
+</head>
 
 <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
 
-  {% include 'header.html' %}
+  {% include 'header2.html' %}
   
     <!--==========================
       Intro Section
@@ -54,9 +89,10 @@
       <!--==========================
         Services Section
       ============================-->
-      <section id="create-challenge" class="bg-light py-5">
+      <section class="animated-section" style="font-family: 'Montserrat', sans-serif;" id="create_challenge_">
         <div class="container">
             <div class="section-header">
+              <br></br>
                 <h2 class="text-center">Crear Reto</h2>
                 <p class="text-center">Aquí puedes crear un nuevo reto para tus empleados.</p>
             </div>
@@ -130,7 +166,7 @@
                         </div>
                         <!-- Add more form fields as needed -->
     
-                        <button type="submit" class="btn btn-primary">Guardar Reto</button>
+                        <button type="submit" class="btn btn-primary " style="background-color: #50D8AF; border: #50D8AF ">Crear Reto</button>
                     </form>
                 </div>
             </div>
@@ -183,6 +219,12 @@
   
     <!-- Template Main Javascript File -->
     <script src="static/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".animated-section").addClass("active");
+        });
+    </script>
   
   
   

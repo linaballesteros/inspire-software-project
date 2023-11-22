@@ -5,6 +5,7 @@ from .forms import BadgeForm
 from django.contrib.auth.decorators import login_required
 from .assign_badge_command import create_assertion, get_challenges
 from django.contrib.auth.models import User
+from challenges.models import Reto
 
 @login_required
 def main(request):
@@ -12,6 +13,18 @@ def main(request):
 
 @login_required
 def create_badge(request):  #Creación de insignias
+    
+    retos = Reto.objects.all() 
+    reto_sin_crear = []
+    for reto in retos: #obtención de retos aun no logados con insignia
+        try:
+            badge = Insignia.objects.get(Reto=reto)
+        except:
+            badge=None
+        if badge==None:
+            reto_sin_crear.append(reto)
+            
+        
     if request.method == 'POST':
         form = BadgeForm(request.POST, request.FILES)
         if form.is_valid():
@@ -23,31 +36,31 @@ def create_badge(request):  #Creación de insignias
             return redirect('main_page')
         else:
             print(form.errors)
-        return render(request,'create_badge.html',{'form':form})
+        return render(request,'create_badge.html',{'form':form, 'Retos':reto_sin_crear})
     else:
         form = BadgeForm(request.POST, request.FILES)
-        return render(request,'create_badge.html',{'form':form})
+        return render(request,'create_badge.html',{'form':form,'Retos':reto_sin_crear})
             
 
 @login_required
-def edit_badge(request):
+def edit_badge(request): #eliminar insignia
     insignias=Insignia.objects.all()
     if request.method == 'POST':()
         
         
     return render(request, "edit_badge.html", {"insignias": insignias})
 
-def delete_badge(request,insignia_id,id):
+def delete_badge(request,insignia_id,id): #view para el delete en la base de datos
     to_delete = Insignia.objects.get(insignia_id=insignia_id)
     to_delete.delete()
     return redirect('edit_badge')
 
 @login_required
-def assign_badge(request):
+def assign_badge(request): #asignar insignia 
     to_assert = get_challenges()
     return render(request, "assign_badge.html",{'list':to_assert})
 
-def assertion(request, insignia_id,id):
+def assertion(request, insignia_id,id): #Creación del assertion
     badge = Insignia.objects.get(insignia_id=insignia_id)
     user = User.objects.get(id=id)
     empleado = Empleado.objects.get(user=user)
@@ -55,7 +68,7 @@ def assertion(request, insignia_id,id):
     return redirect('assign_badge')
     
 
-def get_user_type(request):
+def get_user_type(request): #obtener el tipo del usuario
     try:
         empleado = Empleado.objects.get(user=request.user)
         return 'empleado', {

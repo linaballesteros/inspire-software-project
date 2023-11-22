@@ -37,10 +37,50 @@
       License: https://bootstrapmade.com/license/
     ======================================================= -->
   <style type="text/css" id="operaUserStyle"></style></head>
+  <style>
+    #retosCard {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+  }
+  
+  #retosCard:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .reto-item {
+      margin-bottom: 8px;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+  }
+  
+  .reto-nombre {
+      font-weight: bold;
+  }
+  
+  .fecha-inicio {
+      color: #888;
+      font-size: 0.8em;
+  
+  }
+  .animated-section {
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+    transition: opacity 1s, transform 1s;
+  }
+  
+  .animated-section.active {
+    opacity: 1; /* Se hace visible */
+    transform: translateY(0); /* Se coloca en su posición original */
+  }
+</style>
   
   <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
   
-    {% include 'header.html' %}
+    {% include 'header2.html' %}
     
       <!--==========================
         Intro Section
@@ -55,7 +95,7 @@
           Services Section
         ============================-->
         <br></br>
-        <section style="background-color: #EEF0F1; font-family: 'Montserrat', sans-serif;" id="services">
+        <section class="animated-section" style="background-color: #EEF0F1; font-family: 'Montserrat', sans-serif;" id="services">
           <div class="container py-5">
               <div class="section-header">
                   <h2 class="text-center" style="color: #172F85;">Perfil</h2>
@@ -184,6 +224,12 @@
     
       <!-- Template Main Javascript File -->
       <script src="static/js/main.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+      <script>
+          $(document).ready(function() {
+              $(".animated-section").addClass("active");
+          });
+      </script>
     
     
     

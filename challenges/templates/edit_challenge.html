@@ -35,11 +35,45 @@
   <!-- Main Stylesheet File -->
   <link href="{% static 'css/style.css' %}" rel="stylesheet">
  
-<style type="text/css" id="operaUserStyle"></style></head>
+<style type="text/css" id="operaUserStyle"></style>
+
+<style>
+  body {
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Aplicar Montserrat a todos los elementos dentro de la sección */
+  #create-challenge * {
+      font-family: 'Montserrat', sans-serif;
+  }
+
+  /*color del botón a  */
+  #create-challenge button.btn-primary {
+      background-color: #50D8AF; /* Color verde, puedes ajustar este valor según tus preferencias */
+      border: 1px solid #50D8AF; /* Borde verde */
+  }
+
+  /* Cambiar el color del texto del botón a blanco para que sea legible */
+  #create-challenge button.btn-primary:hover {
+      color: white;
+  }
+  .animated-section {
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+    transition: opacity 1s, transform 1s;
+  }
+  
+  .animated-section.active {
+    opacity: 1; /* Se hace visible */
+    transform: translateY(0); /* Se coloca en su posición original */
+  }
+</style>
+
+</head>
 
 <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
 
-  {% include 'header.html' %}
+  {% include 'header2.html' %}
   
     <!--==========================
       Intro Section
@@ -53,9 +87,10 @@
       <!--==========================
         Services Section
       ============================-->
-      <section id="create-challenge" class="bg-light py-5">
+      <section class="animated-section" style="font-family: 'Montserrat', sans-serif;" id="create_challenge_">
         <div class="container">
             <div class="section-header">
+             <br></br> 
                 <h2 class="text-center">Editar Reto</h2>
                 <h5 class="card-title mb-3"><h1 style="font-size: 30px; color: black !important">Editando Reto: {{ reto_a_editar.nombre }}</h1></h5>
             </div>
@@ -69,20 +104,20 @@
                             <input type="text" class="form-control" id="nombre" name="nombre" value="{{ reto_a_editar.nombre }}" required>
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Descripción del Reto</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" value="{{ reto_a_editar.descripcion }}"  required></textarea>
+                          <label for="title" class="form-label">Descripción del Reto</label>
+                          <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ reto_a_editar.descripcion }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Imagen</label>
-                            <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" value="{{ reto_a_editar.imagen }}"  required>
+                            <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" value="{{ reto_a_editar.imagen }}"  >
                         </div>
                         <div class="mb-3">
                             <label for="start_date" class="form-label">Fecha de Publicación</label>
-                            <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" value="{{ reto_a_editar.fecha_publicacion }}"  required>
+                            <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" value="{{ reto_a_editar.fecha_publicacion }}"  >
                         </div>
                         <div class="mb-3">
                             <label for="end_date" class="form-label">Fecha de Vencimiento</label>
-                            <input type="date" class="form-control" id="fecha_vencimiento" name="fecha_vencimiento" value="{{ reto_a_editar.fecha_vencimiento }}" required>
+                            <input type="date" class="form-control" id="fecha_vencimiento" name="fecha_vencimiento" value="{{ reto_a_editar.fecha_vencimiento }}" >
                         </div>
                         <div class="mb-3">
                             <label for="badge_name" class="form-label">Nombre de la Insignia</label>
@@ -96,7 +131,7 @@
                                 <option value="Resolución de conflictos">Resolución de conflictos</option>
                                 <option value="Pensamiento crítico">Pensamiento crítico</option>
                                 <option value="Creatividad">Creatividad</option>
-                                <option value="Adaptabilidad">Adaptabilidad</option>
+                                <option value="Adaptabilidad">Adaptabilidad</option>  
                                 <option value="Gestión del tiempo">Gestión del tiempo</option>
                                 <option value="Liderazgo">Liderazgo</option>
                                 <option value="Empatía">Empatía</option>
@@ -121,16 +156,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="participant_limit" class="form-label">Límite de Participantes</label>
-                            <input type="number" class="form-control" id="limite_participantes" name="limite_participantes" min="1" max="6" value="{{ reto_a_editar.nombre }}" required>
+                            <input type="number" class="form-control" id="limite_participantes" name="limite_participantes" min="1" max="6" value="{{ reto_a_editar.limite_participantes }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="winner_count" class="form-label">Cantidad de Ganadores</label>
-                            <input type="number" class="form-control" id="winner_count" name="cantidad_ganadores" value="{{ reto_a_editar.nombre }}"  required>
+                            <input type="number" class="form-control" id="cantidad_ganadores" name="cantidad_ganadores" value="{{ reto_a_editar.cantidad_ganadores }}"  required>
                         </div>
                         <!-- Add more form fields as needed -->
     
-                        <button type="submit" name="save_changes" class="btn btn-primary">Guardar Reto</button>
-                        <button type="submit" name="delete_reto" class="btn red btn-primary !important">Eliminar Reto</button>
+                        <button type="submit" name="save_changes" class="btn btn-primary" style="background-color: #50D8AF; border: #50D8AF;  ">Guardar Reto</button>
+                        <button type="submit" name="delete_reto" class="btn red btn-primary !important" style="background-color: red; border: red;  ">Eliminar Reto</button>
                     </form>
                 </div>
             </div>
@@ -183,7 +218,13 @@
 <!-- Template Main Javascript File -->
 <script src="{% static 'js/main.js' %}"></script>
 
-  
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".animated-section").addClass("active");
+    });
+</script>
+
   
   
   <nav id="mobile-nav">

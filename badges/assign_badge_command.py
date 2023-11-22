@@ -5,7 +5,7 @@ from datetime import date
 
 
 
-def get_challenges():
+def get_challenges(): #comando para obtener los retos y sus respectivas insignias
     retos_finalizados = RetosFinalizados.objects.all()
     reto_insignia = []
     for reto in retos_finalizados:
@@ -21,7 +21,7 @@ def get_challenges():
 
 
     
-def create_assertion(empleado,insignia):
+def create_assertion(empleado,insignia): #COmando para crear el assertion
     assertion = Recibir_insignia.objects.create(
         empleado_id = empleado,
         insignia_id = insignia
