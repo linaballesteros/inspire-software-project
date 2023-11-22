@@ -82,7 +82,7 @@ def view_challenges(request):
        return render(request, 'view_challenges_employee.html', {'data_usuario':data_usuario, 'retos': retos})
     
     elif tipo_usuario == 'empleador':
-        return render(request, "view_challenges.html", {'retos': retos})
+        return render(request, "view_challenges_employer.html", {'retos': retos})
 
 def edit_challenge(request, reto_id): # UPDATE RETO
     reto_a_editar = get_object_or_404(Reto, pk=reto_id)

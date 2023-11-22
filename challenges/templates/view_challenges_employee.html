@@ -37,6 +37,15 @@
       License: https://bootstrapmade.com/license/
     ======================================================= -->
   <style type="text/css" id="operaUserStyle"></style></head>
+  <style>
+
+    .badge {
+      border-radius: 15px;
+      padding: 10px;
+      background-color: #0d2e8a;
+    }
+
+  </style>
   
   <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
   
@@ -58,6 +67,9 @@
           <div class="container">
             <div class="section-header">
               <h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">Retos Disponibles</h2>
+              <div id="tokens" class="badge badge-primary badge-lg badge-light-blue">
+                Tus  Tokens: {{ data_usuario.tokens_empleado }}
+              </div>              
               <p class="text-center" style="font-family: 'Montserrat', sans-serif;">Aquí puedes ver los retos disponibles.</p>
             </div>
         
@@ -165,6 +177,39 @@
       <!-- Template Main Javascript File -->
       <script src="static/js/main.js"></script>
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/tokens.js"></script>
+        <script>
+
+          // Obtener la cantidad de tokens del usuario
+function getTokens() {
+  // Obtener el usuario actual
+  const user = django.contrib.auth.get_user(document.querySelector("body"));
+
+  // Obtener la cantidad de tokens del usuario
+  const tokens = data_user.empleado_tokens;
+
+  return tokens;
+}
+
+// Actualizar el contenido del elemento HTML
+function updateTokens() {
+  // Obtener la cantidad de tokens del usuario
+  const tokens = getTokens();
+
+  // Obtener el elemento HTML que mostrará la cantidad de tokens
+  const element = document.querySelector("#tokens");
+
+  // Actualizar el contenido del elemento HTML
+  element.textContent = tokens;
+}
+
+// Ejecutar el script al cargar la página
+document.addEventListener("DOMContentLoaded", updateTokens);
+
+        </script>
+
+      
       <script>
       $(document).ready(function() {
           $('#iniciar-reto-form').submit(function(e) {
