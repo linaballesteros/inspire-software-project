@@ -644,6 +644,67 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 24px;
 }
 
+/* progress Section
+--------------------------------*/
+
+#progress {
+  padding: 30px 0 0 0;
+}
+
+#progress .box {
+  
+  margin-bottom: 40px;
+  box-shadow: 10px 10px 15px rgba(73, 78, 92, 0.1);
+  background: #fff;
+  transition: 0.4s;
+}
+
+#progress .box:hover {
+  box-shadow: 0px 0px 30px rgba(73, 78, 92, 0.15);
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+}
+
+
+
+#progress .box .icon {
+  float: left;
+}
+
+#progress .box .icon i {
+  color: #444;
+  font-size: 64px;
+  transition: 0.5s;
+  line-height: 0;
+  margin-top: 34px;
+}
+
+#progress .box .icon i:before {
+  background: #0c2e8a;
+  background: linear-gradient(45deg, #50d8af 0%, #a3ebd5 100%);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#progress .box h4 {
+  margin-left: 40px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+#progress .box h4 a {
+  color: #444;
+}
+
+#progress .box p {
+  font-size: 14px;
+  margin-left: 100px;
+  margin-bottom: 0;
+  line-height: 24px;
+}
 /* Clients Section
 --------------------------------*/
 
@@ -1013,6 +1074,34 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #contact .form button[type="submit"]:hover {
   background: #2dc899;
+}
+
+#miTabla {
+  display: none;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#miTabla th, #miTabla td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+#miTabla th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#miTabla tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#miTabla tbody tr:hover {
+  background-color: #ddd;
 }
 
 /*--------------------------------------------------------------

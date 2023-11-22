@@ -26,9 +26,10 @@ HABILIDADES_LISTA = [
 
 CANTIDAD_PARTICIPANTES = [(1, 1), (2, 2), (3, 3), (4, 4), (5,5), (6, 6)]
 
-
-
-
+ESTADO_CHOICES = (
+        ('INICIADO', 'INICIADO'),
+        ('FINALIZADO', 'FINALIZADO'),
+    )
 
 # Create your models here.
 class Reto(models.Model):
@@ -42,5 +43,6 @@ class Reto(models.Model):
     tokens =  models.IntegerField()
     limite_participantes = models.IntegerField(default=6, choices=CANTIDAD_PARTICIPANTES) 
     cantidad_ganadores = models.IntegerField()
+    estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='INICIADO')
     
     

@@ -1,0 +1,312 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>Inspire</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="medal.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Include jQuery from a CDN -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <!-- static/libraries CSS Files -->
+  <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+
+
+  <!-- Main Stylesheet File -->
+  <link href="static/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Reveal
+    Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+<style type="text/css" id="operaUserStyle"></style></head>
+
+<style>
+  #retosCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+#retosCard:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.reto-item {
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.reto-nombre {
+    font-weight: bold;
+}
+
+.fecha-inicio {
+    color: #888;
+    font-size: 0.8em;
+}
+}
+
+</style>
+
+<body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
+
+  {% include 'header.html' %}
+  
+    <!--==========================
+      Intro Section
+    ============================-->
+   
+  
+    <main id="main">
+  
+   
+  
+      <!--==========================
+        Services Section
+      ============================-->
+      <br></br>
+      <section style="background-color: #EEF0F1; font-family: 'Montserrat', sans-serif;" id="services">
+        <div class="container py-5">
+            <div class="section-header">
+                <h2 class="text-center" style="color: #172F85;">Perfil</h2>
+                <p class="text-center" style="color: #7F88BC;">Administra tu cuenta</p>
+            </div>
+    
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4"  id="retosCard">
+                        <div class="card-body text-center">
+                            <img src={{data_usuario.imagen_empleado}} alt="avatar"
+                                class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3" style="color: #172F85;">{{ data_usuario.nombre_empleado}}</h5>
+                            <p class="text-muted mb-1" style="color: #83D2B8;">{{data_usuario.cargo_empleado}}</p>
+                            <p class="text-muted mb-4">Medellín, Antioquia</p>
+                            <div class="d-flex justify-content-center mb-2">
+                              <a href="http://localhost:8000/log_out">
+                                <button type="button" class="btn btn-primary mb-2" style="background-color: #83D2B8; border: 1px solid #6CBA99;">Log Out</button>
+                            </a>
+                                                      </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-lg-0" id="retosCard">
+                      <div class="card-body p-0">
+                              <li class="list-group-item p-3">
+                                  <div class="d-flex align-items-center">
+                                      <i class="fas fa-user-alt m-1 me-md-2" style="color: #172F85;"></i>
+                                      <div>
+                                          <h5 class="card-title" style="margin-bottom: 0; color: #172F85;">Insignias Obtenidas</h5>
+                                          <br></br>
+                                          <p class="card-text" style="margin-bottom: 0;">Cantidad: <span id="cantidadRetos">{{cantidad_retos_finalizados}}</span></p>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  
+                    
+                    
+                    
+                </div>
+                
+                
+                
+                <div class="col-lg-8">
+                    <div class="card mb-4"  id="retosCard">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color: #172F85;">Nombre</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0" style="color: #7F88BC;">{{data_usuario.nombre_empleado}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color: #172F85;">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0" style="color: #7F88BC;">{{user.email}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                  <p class="mb-0" style="color: #172F85;">Tokens</p>
+                              </div>
+                              <div class="col-sm-9">
+                                  <p class="text-muted mb-0" style="color: #7F88BC;">{{data_usuario.tokens_empleado}}</p>
+                              </div>
+                          </div>
+                          <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0" style="color: #172F85;">Organización</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0" style="color: #7F88BC;">{{data_usuario.organizacion_empleado}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <!-- para agregar más -->
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="card mb-4"  id="retosCard">
+                          <div class="card-body">
+                              <h5 class="card-title" style="color: #172F85;">Habilidades</h5>
+                              {% for habilidad,cantidad in habilidades_empleado %}
+                              <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">{{habilidad}}</p>
+                              <div class="progress rounded" style="height: 5px;">
+                                  <div class="progress-bar" role="progressbar" style="width: {{cantidad}}0%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+                    
+                    
+                        
+                
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <div class="card mb-4" id="retosCard">
+                          <div class="card-body">
+                              <h5 class="card-title" style="color: #172F85;">Retos Activos</h5>
+                              <p class="card-text">Cantidad: <span id="cantidadRetos">{{cantidad_retos_iniciados}}</span></p>
+                              <div id="retosList">
+                                  {% for reto_iniciado in retos_iniciados_usuario %}
+                                  <div class="reto-item">
+                                      <span class="reto-nombre">{{ reto_iniciado.reto.nombre }}</span>
+                                      <span class="fecha-inicio">Iniciado el {{ reto_iniciado.fecha_inicio }}</span>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+               
+                  
+                  
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <div class="card mb-4" id="retosCard">
+                          <div class="card-body">
+                              <h5 class="card-title" style="color: #172F85;">Retos Finalizados</h5>
+                              <p class="card-text">Cantidad: <span id="cantidadRetos">{{cantidad_retos_finalizados}}</span></p>
+                              <div id="retosList">
+                                  {% for reto_finalizado in retos_finalizados_usuario %}
+                                  <div class="reto-item">
+                                      <span class="reto-nombre">{{ reto_finalizado.reto.nombre }}</span>
+                                      <span class="fecha-inicio">Finalizado el {{ reto_finalizado.fecha_finalizacion }}</span>
+                                  </div>
+                                  {% endfor %}
+                              </div>
+                          </div>
+                      </div>
+                 
+                
+              
+              
+       
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+  
+  
+    </main>
+  
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          © Copyright <strong>Inspire</strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </footer><!-- #footer -->
+  
+    <a href="#" class="back-to-top" style="display: none;"><i class="fa fa-chevron-up"></i></a>
+  
+    <!-- JavaScript Libraries -->
+        <!-- Include jQuery from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="static/lib/jquery/jquery.min.js"></script>
+    <script src="static/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/superfish/hoverIntent.js"></script>
+    <script src="static/lib/superfish/superfish.min.js"></script>
+    <script src="static/lib/wow/wow.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/magnific-popup/magnific-popup.min.js"></script>
+    <script src="static/lib/sticky/sticky.js"></script>
+  
+    <!-- Contact Form JavaScript File -->
+    <script src="static/contactform/contactform.js"></script>
+  
+    <!-- Template Main Javascript File -->
+    <script src="static/js/main.js"></script>
+  
+  
+  
+  <nav id="mobile-nav">
+          <ul class="" style="touch-action: pan-y;" id="">
+            <li class="menu-active"><a href="#body">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#team">Team</a></li>
+            <li class="menu-has-children"><i class="fa fa-chevron-down"></i><a href="" class="sf-with-ul">Drop Down</a>
+              <ul style="display: none;">
+                <li><a href="#">Drop Down 1</a></li>
+                <li><a href="#">Drop Down 3</a></li>
+                <li><a href="#">Drop Down 4</a></li>
+                <li><a href="#">Drop Down 5</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav><div id="mobile-body-overly"></div></body></html>

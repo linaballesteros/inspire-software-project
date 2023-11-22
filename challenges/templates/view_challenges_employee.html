@@ -1,0 +1,321 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Inspire</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+  
+    <!-- Favicons -->
+    <link href="medal.png" rel="icon">
+    <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+  
+    <!-- Bootstrap CSS File -->
+    <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Include jQuery from a CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- static/libraries CSS Files -->
+    <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="static/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  
+  
+  
+    <!-- Main Stylesheet File -->
+    <link href="static/css/style.css" rel="stylesheet">
+  
+    <!-- =======================================================
+      Theme Name: Reveal
+      Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+    ======================================================= -->
+  <style type="text/css" id="operaUserStyle"></style></head>
+  <style>
+
+    .badge {
+      border-radius: 15px;
+      padding: 10px;
+      background-color: #0d2e8a;
+      font-size: 20px; 
+      padding: 15px; 
+    }
+    .custom-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease; 
+    }
+    
+    .custom-card:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  
+    }
+    
+    .custom-card-header {
+      background-color: #f8f9fa;
+      font-weight: bold;  /* Título en negrita */
+      border-top-left-radius: 10px;  /* Bordes semi-circulares en la esquina superior izquierda */
+      border-top-right-radius: 10px; /* Bordes semi-circulares en la esquina superior derecha */
+    }
+      .custom-card-footer {
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      .iniciar-reto-btn,
+      .finalizar-reto-btn {
+        background-color: #50D8AF !important;
+        width: 100%;  /* Ajusta el ancho de los botones para dejar espacio a la izquierda y a la derecha */
+        transition: box-shadow 0.3s ease;  /* Transición suave para la sombra al pasar el cursor */
+        border: none
+      }
+      
+      .iniciar-reto-btn:hover,
+      .finalizar-reto-btn:hover {
+        background-color: #0D2E8A !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Agrega una sombra al pasar el cursor */
+      }
+    
+
+  </style>
+  
+  <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
+  
+    {% include 'header.html' %}
+    
+      <!--==========================
+        Intro Section
+      ============================-->
+     
+    
+      <main id="main">
+    
+     
+    
+        <!--==========================
+          Services Section
+        ============================-->
+        <section id="retos-disponibles" class="bg-light py-5">
+          <div class="container">
+            <div class="section-header">
+              <h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">Retos Disponibles</h2>
+              <div id="tokens" class="badge badge-primary badge-lg badge-light-blue custom-card" style="font-size: 20px; padding: 10px; font-family: 'Montserrat', sans-serif;">
+                &#x25C8; Tus  Tokens: {{ data_usuario.tokens_empleado }}🌟
+              </div>              
+              <p class="text-center" style="font-family: 'Montserrat', sans-serif;">Aquí puedes ver los retos disponibles.</p>
+            </div>
+        
+            <div class="row">
+              {% for reto in retos %}
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                  <div class="card mb-4 h-100 custom-card">
+                    <div class="card-header custom-card-header">
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif;">{{ reto.nombre }}</h5>
+                    </div>
+                    <div class="card-body">
+                      <img src="{{ reto.imagen.url }}" class="card-img-top" alt="{{ reto.nombre }}">
+                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ reto.descripcion }}</p>
+                      <ul class="list-group list-group-flush">
+    <!-- ... tu código existente ... -->
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Fecha de Creación:</span> {{ reto.fecha_publicacion }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Fecha de Vencimiento:</span> {{ reto.fecha_vencimiento }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Tokens:</span> {{ reto.tokens }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Límite de Participantes:</span> {{ reto.limite_participantes }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Límite de Ganadores:</span> {{ reto.cantidad_ganadores }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Insignia a Obtener:</span> {{ reto.categoria_insignia }}
+</li>
+<!-- ... tu código existente ... -->
+
+                      </ul>
+                    </div>
+                    {% if reto.id %}
+                    <div class="card-footer text-center">
+                        <form id="iniciar-reto-form" method="post" action="{% url 'start_challenge' reto_id=reto.id %}">
+                            {% csrf_token %}
+                          
+                                <button type="submit" class="btn btn-primary iniciar-reto-btn" style="font-family: 'Montserrat', sans-serif;">
+                                    {% if reto.estado == 'INICIADO' %}
+                                        Reto Iniciado
+                                    {% else %}
+                                        Iniciar Reto
+                                    {% endif %}
+                                </button>
+                                
+                            
+                        </form>
+                      
+                        <form id="finalizar-reto-form" method="post" action="{% url 'end_challenge' reto_id=reto.id %}">
+                            {% csrf_token %}
+                            
+                                <button type="submit" class="btn btn-primary finalizar-reto-btn " style="font-family: 'Montserrat', sans-serif;">
+                                    {% if reto.estado == 'FINALIZADO' %}
+                                    Reto Finalizado
+                                    {% else %}
+                                      Finalizar Reto
+                                    {% endif %}
+                                </button>
+                    
+                </form>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </section>
+        
+        
+        
+     
+    
+      </main>
+    
+      <!--==========================
+        Footer
+      ============================-->
+      <footer id="footer">
+        <div class="container">
+          <div class="copyright">
+            © Copyright <strong>Inspire</strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!--
+              All the links in the footer should remain intact.
+              You can delete the links only if you purchased the pro version.
+              Licensing information: https://bootstrapmade.com/license/
+              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+            -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          </div>
+        </div>
+      </footer><!-- #footer -->
+    
+      <a href="#" class="back-to-top" style="display: none;"><i class="fa fa-chevron-up"></i></a>
+    
+      <!-- JavaScript Libraries -->
+          <!-- Include jQuery from a CDN -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="static/lib/jquery/jquery.min.js"></script>
+      <script src="static/lib/jquery/jquery-migrate.min.js"></script>
+      <script src="static/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="static/lib/easing/easing.min.js"></script>
+      <script src="static/lib/superfish/hoverIntent.js"></script>
+      <script src="static/lib/superfish/superfish.min.js"></script>
+      <script src="static/lib/wow/wow.min.js"></script>
+      <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+      <script src="static/lib/magnific-popup/magnific-popup.min.js"></script>
+      <script src="static/lib/sticky/sticky.js"></script>
+    
+      <!-- Contact Form JavaScript File -->
+      <script src="static/contactform/contactform.js"></script>
+    
+      <!-- Template Main Javascript File -->
+      <script src="static/js/main.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/tokens.js"></script>
+        <script>
+
+          // Obtener la cantidad de tokens del usuario
+function getTokens() {
+  // Obtener el usuario actual
+  const user = django.contrib.auth.get_user(document.querySelector("body"));
+
+  // Obtener la cantidad de tokens del usuario
+  const tokens = data_user.empleado_tokens;
+
+  return tokens;
+}
+
+// Actualizar el contenido del elemento HTML
+function updateTokens() {
+  // Obtener la cantidad de tokens del usuario
+  const tokens = getTokens();
+
+  // Obtener el elemento HTML que mostrará la cantidad de tokens
+  const element = document.querySelector("#tokens");
+
+  // Actualizar el contenido del elemento HTML
+  element.textContent = tokens;
+}
+
+// Ejecutar el script al cargar la página
+document.addEventListener("DOMContentLoaded", updateTokens);
+
+        </script>
+
+      
+      <script>
+      $(document).ready(function() {
+          $('#iniciar-reto-form').submit(function(e) {
+              e.preventDefault();  // Evita la acción predeterminada del formulario (recargar la página)
+      
+              var form = $(this);
+              $.post(form.attr('action'), form.serialize(), function(response) {
+                  // Maneja la respuesta si es necesario
+                  alert('Reto iniciado exitosamente');
+                  // Actualiza el texto del botón
+                  form.find('.iniciar-reto-btn').text('Reto Iniciado');
+              }).fail(function(error) {
+                  console.log(error);
+                  alert('Error al iniciar el reto');
+              });
+          });
+      });
+      </script>
+      <script>
+        $(document).ready(function() {
+            $('#finalizar-reto-form').submit(function(e) {
+                e.preventDefault();  // Evita la acción predeterminada del formulario (recargar la página)
+        
+                var form = $(this);
+                $.post(form.attr('action'), form.serialize(), function(response) {
+                    // Maneja la respuesta si es necesario
+                    alert('Reto finalizado exitosamente. Has ganado recompensas.');
+                    // Actualiza el texto del botón
+                    form.find('.finalizar-reto-btn').text('Reto Finalizado');
+                }).fail(function(error) {
+                    console.log(error);
+                    alert('Error al finalizar el reto');
+                });
+            });
+        });
+        </script>
+    
+    
+    
+    <nav id="mobile-nav">
+            <ul class="" style="touch-action: pan-y;" id="">
+              <li class="menu-active"><a href="#body">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#team">Team</a></li>
+              <li class="menu-has-children"><i class="fa fa-chevron-down"></i><a href="" class="sf-with-ul">Drop Down</a>
+                <ul style="display: none;">
+                  <li><a href="#">Drop Down 1</a></li>
+                  <li><a href="#">Drop Down 3</a></li>
+                  <li><a href="#">Drop Down 4</a></li>
+                  <li><a href="#">Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav><div id="mobile-body-overly"></div></body></html>
