@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'challenges',
     'accounts',
-    "Recompensa"
+    "Recompensa",
+    'badges',
+    'menu'
 ]
 
 MIDDLEWARE = [

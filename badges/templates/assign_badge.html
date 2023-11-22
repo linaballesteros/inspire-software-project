@@ -60,6 +60,31 @@
                   <h2 class="text-center">Asignar Insignia</h2>
                   <p class="text-center">Aquí puedes asignarle una insignia a uno de tus empleados</p>
               </div>
+              <div class="row">
+              {% for tup in list %}
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                  <div class="card mb-4 h-100">
+                    <div class="card-header text-center">
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">{{ tup.1.Nombre }}</h5>
+                    </div>
+                    <div class="card-body">
+                      <img src="{{ tup.1.Imagen }}" class="card-img-top" alt="{{tup.1.Nombre }}">
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Empleado:</h5>
+                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ tup.0.empleado.nombre_empleado }}</p>
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Reto completado:</h5>
+                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ tup.0.reto.nombre }}</p>
+                      
+                    </div>
+                    <div class="card-footer">
+                      <form method="POST" action="{% url 'assertion' insignia_id=tup.1.insignia_id id=tup.0.empleado.user.id %}" class="border p-4 rounded">
+                          {% csrf_token %}
+                          <button type="submit" class="btn btn-primary" style="color: white;">Asignar esta insignia</button>
+                      </form>
+                  </div>
+                  </div>
+                </div>
+              {% endfor %}
+              </div>
       
     
           </div>

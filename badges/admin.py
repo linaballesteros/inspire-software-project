@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Insignia, Recibir_insignia
 
-# Register your models here.
+
+admin.site.register(Insignia)
+admin.site.register(Recibir_insignia)

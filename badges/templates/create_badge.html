@@ -67,21 +67,19 @@
                           {% csrf_token %}
                           <div class="mb-3">
                               <label for="title" class="form-label">Nombre de la insignia</label>
-                              <input type="text" class="form-control" id="nombre" name="nombre" value="{{ form.nombre.value }}" required>
-                          </div>
-                          <div class="mb-3">
-                              <label for="description" class="form-label">Habilidades de la insignia</label>
-                              <textarea class="form-control" id="descripcion" name="descripcion" rows="4" value="{{ form.descripcion.value }}" required></textarea>
+                              <input type="text" class="form-control" id="Nombre" name="Nombre" value="{{ form.Nombre.value }}" required>
                           </div>
                           <div class="mb-3">
                               <label for="image" class="form-label">Imagen</label>
-                              <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" value="{{ form.imagen.value }}" required>
+                              <input type="file" class="form-control" id="Imagen" name="Imagen" accept="image/*" value="{{ form.Imagen.value }}" required>
                           </div>
                           
                           <div class="mb-3">
                               <label for="challenge_completed" class="form-label">Reto a completar</label>
-                              <select class="form-select" id="challenge_completed" name="challenge_completed" value="{{ form.challenge_completed.value }}" required>
-                                  <option value="Opción 1">Opción 1</option>
+                              <select class="form-select" id="Reto" name="Reto" value="{{ form.Reto.value }}" required>
+                                {% for option in form.Reto.field.queryset %}
+                                <option value="{{ option.id }}">{{ option.nombre }}</option>
+                                {% endfor %}
         
                               </select>
                           </div>

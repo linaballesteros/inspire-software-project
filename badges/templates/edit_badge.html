@@ -64,22 +64,23 @@
               {% for insignia in insignias %}
                 <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
                   <div class="card mb-4 h-100">
-                    <div class="card-header">
-                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif;">{{ insignia.nombre }}</h5>
+                    <div class="card-header text-center">
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">{{ insignia.Nombre }}</h5>
                     </div>
                     <div class="card-body">
-                      <img src="{{ insignia.imagen.url }}" class="card-img-top" alt="{{ insignia.nombre }}">
-                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ insignia.descripcion }}</p>
-                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ insignia.reto }}</p>
+                      <img src="{{ insignia.Imagen }}" class="card-img-top" alt="{{ insignia.nombre }}">
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Habilidad:</h5>
+                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ insignia.Habilidades }}</p>
+                      <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Reto Completado:</h5>
+                      <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ insignia.Reto.nombre }}</p>
                       
                     </div>
-                    {% if reto.id %}
                     <div class="card-footer">
-                        <form method="POST" enctype="multipart/form-data" class="border p-4 rounded">
-                            <button type="submit" class="btn btn-primary" style="color: red;">Eliminar Insignia</button>
-                        </form>
-                    </div>
-                    {% endif %}
+                      <form method="POST" action="{% url 'delete_badge' insignia.insignia_id %}" class="border p-4 rounded">
+                          {% csrf_token %}
+                          <button type="submit" class="btn btn-primary" style="color: white;">Eliminar Insignia</button>
+                      </form>
+                  </div>
                   </div>
                 </div>
               {% endfor %}

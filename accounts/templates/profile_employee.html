@@ -120,6 +120,17 @@
                                           <h5 class="card-title" style="margin-bottom: 0; color: #172F85;">Insignias Obtenidas</h5>
                                           <br></br>
                                           <p class="card-text" style="margin-bottom: 0;">Cantidad: <span id="cantidadRetos">{{cantidad_retos_finalizados}}</span></p>
+                                          <div class="card-deck" style="margin-top: 20px;">
+                                            {% for insignia in insignias %}
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ insignia.insignia_id.Imagen }}" class="card-img-top" alt="{{ insignia.nombre }}">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{ insignia.insignia_id.Nombre }}</h5>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                          
                                       </div>
                                   </div>
                               </li>

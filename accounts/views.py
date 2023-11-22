@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Empleado, RetosIniciados, RetosFinalizados     
 from django.db import IntegrityError
 from .models import Empleador
+from badges.models import Recibir_insignia
 
 # from .forms import EmpleadoForm, EmpleadoLoginForm
 # from .forms import EmpleadorForm
@@ -120,8 +121,13 @@ def profile(request):
        print("habilidades:") 
        print(habilidades_empleado)
        
+        # enviar las insignias ganadas
+       insignias = Recibir_insignia.objects.filter(empleado_id=empleado)
+       print('[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]')
+       print(insignias)
        
-       return render(request, 'profile_employee.html', {'data_usuario':data_usuario, 'retos_iniciados':retos_iniciados, 'retos_iniciados_usuario':retos_iniciados_usuario, 'cantidad_retos_iniciados':cantidad_retos_iniciados, 'retos_finalizados':retos_finalizados, 'retos_finalizados_usuario':retos_finalizados_usuario, 'cantidad_retos_finalizados':cantidad_retos_finalizados, 'habilidades_empleado':habilidades_empleado})
+       
+       return render(request, 'profile_employee.html', {'data_usuario':data_usuario, 'retos_iniciados':retos_iniciados, 'retos_iniciados_usuario':retos_iniciados_usuario, 'cantidad_retos_iniciados':cantidad_retos_iniciados, 'retos_finalizados':retos_finalizados, 'retos_finalizados_usuario':retos_finalizados_usuario, 'cantidad_retos_finalizados':cantidad_retos_finalizados, 'habilidades_empleado':habilidades_empleado,'insignias':insignias})
    
    elif tipo_usuario == 'empleador':
        return render(request, 'profile_employer.html', data_usuario)

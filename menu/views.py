@@ -32,10 +32,9 @@ def get_user_type(request):
             return None, None
 
 def header(request):
-    
-    tipo_usuario, data_usuario = get_user_type(request)
 
-    return render(request, 'header.html', {'tipo_usuario':tipo_usuario,'data_usuario':data_usuario})
+    usuario = get_user_type(request)
+    return render(request, 'header.html', {'usuario':usuario})
     
 def home2(request):
     

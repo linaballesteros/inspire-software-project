@@ -29,7 +29,7 @@ from Recompensa import views as Tienda_views
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('', challenges_views.home2),
+
     
     #url de recompensa
     path('Tienda',Tienda_views.Recompensas,name="Tienda"),
@@ -65,6 +65,9 @@ urlpatterns = [
     path('create_badge', badges_views.create_badge, name="create_badge"),
     path('edit_badge', badges_views.edit_badge, name="edit_badge"),
     path('assign_badge', badges_views.assign_badge, name="assign_badge"),
+    path('delete_badge/<int:insignia_id>/', badges_views.delete_badge, name='delete_badge'),
+    path('assertion/<int:insignia_id>/<int:id>', badges_views.assertion ,name='assertion'),
+
     path('log_out', accounts_views.log_out, name='log_out'), 
     
     path('header', menu_views.header, name='header'),
