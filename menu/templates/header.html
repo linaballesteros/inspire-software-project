@@ -42,11 +42,11 @@ document.addEventListener("DOMContentLoaded", updateTokens);
         <div class="social-links float-right">
           <div class="user-info">
             {% if user.is_authenticated %}
-              ¡Hola, {{ user.username }}! | Iniciaste sesión como: {{ user.email}} 
-            
+              ¡Hola, <span style="color: #50D8AF;">{{ user.username }}</span>! | Iniciaste sesión como: <span style="color: #50D8AF;">{{ user.email }}</span>
             {% endif %}
           </div>
         </div>
+        
       </div>
     </section>
     
