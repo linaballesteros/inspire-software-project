@@ -43,7 +43,44 @@
       border-radius: 15px;
       padding: 10px;
       background-color: #0d2e8a;
+      font-size: 20px; 
+      padding: 15px; 
     }
+    .custom-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease; 
+    }
+    
+    .custom-card:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);  
+    }
+    
+    .custom-card-header {
+      background-color: #f8f9fa;
+      font-weight: bold;  /* Título en negrita */
+      border-top-left-radius: 10px;  /* Bordes semi-circulares en la esquina superior izquierda */
+      border-top-right-radius: 10px; /* Bordes semi-circulares en la esquina superior derecha */
+    }
+      .custom-card-footer {
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      .iniciar-reto-btn,
+      .finalizar-reto-btn {
+        background-color: #50D8AF !important;
+        width: 100%;  /* Ajusta el ancho de los botones para dejar espacio a la izquierda y a la derecha */
+        transition: box-shadow 0.3s ease;  /* Transición suave para la sombra al pasar el cursor */
+        border: none
+      }
+      
+      .iniciar-reto-btn:hover,
+      .finalizar-reto-btn:hover {
+        background-color: #0D2E8A !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);  /* Agrega una sombra al pasar el cursor */
+      }
+    
 
   </style>
   
@@ -67,8 +104,8 @@
           <div class="container">
             <div class="section-header">
               <h2 class="text-center" style="font-family: 'Montserrat', sans-serif;">Retos Disponibles</h2>
-              <div id="tokens" class="badge badge-primary badge-lg badge-light-blue">
-                Tus  Tokens: {{ data_usuario.tokens_empleado }}
+              <div id="tokens" class="badge badge-primary badge-lg badge-light-blue custom-card" style="font-size: 20px; padding: 10px; font-family: 'Montserrat', sans-serif;">
+                &#x25C8; Tus  Tokens: {{ data_usuario.tokens_empleado }}🌟
               </div>              
               <p class="text-center" style="font-family: 'Montserrat', sans-serif;">Aquí puedes ver los retos disponibles.</p>
             </div>
@@ -76,29 +113,43 @@
             <div class="row">
               {% for reto in retos %}
                 <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                  <div class="card mb-4 h-100">
-                    <div class="card-header">
+                  <div class="card mb-4 h-100 custom-card">
+                    <div class="card-header custom-card-header">
                       <h5 class="card-title" style="font-family: 'Montserrat', sans-serif;">{{ reto.nombre }}</h5>
                     </div>
                     <div class="card-body">
                       <img src="{{ reto.imagen.url }}" class="card-img-top" alt="{{ reto.nombre }}">
                       <p class="card-text" style="font-family: 'Montserrat', sans-serif;">{{ reto.descripcion }}</p>
                       <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Fecha de Creación: {{ reto.fecha_publicacion }}</li>
-                        <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Fecha de Vencimiento: {{ reto.fecha_vencimiento }}</li>
-                        <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Tokens: {{ reto.tokens }}</li>
-                        <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Límite de Participantes: {{ reto.limite_participantes }}</li>
-                        <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Límite de Ganadores: {{ reto.cantidad_ganadores }}</li>
-                        <li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">Insignia a Obtener: {{ reto.categoria_insignia }}</li>
+    <!-- ... tu código existente ... -->
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Fecha de Creación:</span> {{ reto.fecha_publicacion }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Fecha de Vencimiento:</span> {{ reto.fecha_vencimiento }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Tokens:</span> {{ reto.tokens }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Límite de Participantes:</span> {{ reto.limite_participantes }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Límite de Ganadores:</span> {{ reto.cantidad_ganadores }}
+</li>
+<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;">
+  <span style="font-weight: bold;">Insignia a Obtener:</span> {{ reto.categoria_insignia }}
+</li>
+<!-- ... tu código existente ... -->
 
                       </ul>
                     </div>
                     {% if reto.id %}
-                    <div class="card-footer">
+                    <div class="card-footer text-center">
                         <form id="iniciar-reto-form" method="post" action="{% url 'start_challenge' reto_id=reto.id %}">
                             {% csrf_token %}
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary iniciar-reto-btn">
+                          
+                                <button type="submit" class="btn btn-primary iniciar-reto-btn" style="font-family: 'Montserrat', sans-serif;">
                                     {% if reto.estado == 'INICIADO' %}
                                         Reto Iniciado
                                     {% else %}
@@ -106,19 +157,20 @@
                                     {% endif %}
                                 </button>
                                 
-                            </div>
+                            
                         </form>
+                      
                         <form id="finalizar-reto-form" method="post" action="{% url 'end_challenge' reto_id=reto.id %}">
                             {% csrf_token %}
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary finalizar-reto-btn">
-                                    {% if reto.estado2 == 'FINALIZADO' %}
+                            
+                                <button type="submit" class="btn btn-primary finalizar-reto-btn " style="font-family: 'Montserrat', sans-serif;">
+                                    {% if reto.estado == 'FINALIZADO' %}
                                     Reto Finalizado
                                     {% else %}
                                       Finalizar Reto
                                     {% endif %}
                                 </button>
-                    </div>
+                    
                 </form>
                     </div>
                     {% endif %}
