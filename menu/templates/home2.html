@@ -40,7 +40,11 @@
   
   <body id="body"><button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>
   
+    {% if user_type == 'empleado' %}
     {% include 'header.html' %}
+    {%else%}
+    {% include 'header2.html' %}
+    {%endif %}
   
   
     <!--==========================

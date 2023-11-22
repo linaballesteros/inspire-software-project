@@ -42,8 +42,21 @@ def VisualizarRecompensas(request):
     Almuerzo="Almuerzo"  
     print("Recompensas:", Recompensas)
     user_type, data_user = get_user_type(request)
+    
     return render(request, "VisualizarRecompensas.html", {'Recompensas': Recompensas,"Almuerzo":Almuerzo, 'user_type':user_type, 'data_user':data_user})
 
+def sub_tokens(request, recompensa_id):
+    RC = get_object_or_404(recompensa, id=recompensa_id)
+    empleado = request.user.empleado
+    # actualizar los tokens del empleado cuando finaliza un reto
+    cantidad_tokens_recompensa = RC.tokens
+    tokens = empleado.tokens_empleado
+    if cantidad_tokens_recompensa <= tokens:
+        tokens -= cantidad_tokens_recompensa
+        empleado.tokens_empleado = tokens
+        empleado.save()
+        
+    return HttpResponse(status=204)
 
 def CrearRecompensas_(request):
     print("Entro a la vista CrearRecompensas_")
@@ -61,5 +74,3 @@ def CrearRecompensas_(request):
         form=ObjectForm()
     user_type, data_user = get_user_type(request)
     return render(request, "CrearRecompensas.html", {"form":form,'user_type':user_type, 'data_user':data_user})
-    
-    

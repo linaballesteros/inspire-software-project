@@ -36,6 +36,7 @@ urlpatterns = [
     path('CrearRecompensa',Tienda_views.CrearRecompensas,name="CrearRecompensa"),
     path('CrearRecompensa_',Tienda_views.CrearRecompensas_,name="CrearRecompensa_"),
     path('VisualizarRecompensas',Tienda_views.VisualizarRecompensas,name="VisualizarRecompensas"),
+    path('AdquirirRecompensa/<int:recompensa_id>/', Tienda_views.sub_tokens, name='sub_tokens'),
     
    
     # path('my_profile', challenges_views.my_profile, name='my_profile'),
