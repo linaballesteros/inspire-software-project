@@ -54,6 +54,7 @@ def create_challenge(request):
     return render(request, "create_challenge.html")
 
 def create_challenge_(request): # for publishing challenges
+    print("entro en la funcion de lina")
     if request.method == 'POST':
         form = ObjectForm(request.POST, request.FILES)
         print("posttt")
