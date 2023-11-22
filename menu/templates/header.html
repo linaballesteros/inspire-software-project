@@ -13,7 +13,7 @@
           <div class="user-info">
             {% if user.is_authenticated %}
           
-                ¡Hola, {{ user.username }}!
+                ¡Hola, {{ user.username }}! | Iniciaste sesión como: {{ user.email}} 
           
             {% endif %}
         </div>

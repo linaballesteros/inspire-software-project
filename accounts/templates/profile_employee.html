@@ -178,34 +178,22 @@
                             </div>
                         </div>
                     </div>
+                   
                     <div class="row">
-                        <div class="col-md-12">
-                          <div class="card mb-4"  id="retosCard">
-                            <div class="card-body">
-                                <h5 class="card-title" style="color: #172F85;">Habilidades</h5>
-                             
-                                <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">Leadership</p>
-                                <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 30%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">Teamwork</p>
-                                <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 20%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">Critical Thinking</p>
-                                <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 5%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">Adaptability</p>
-                                <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 30%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                                <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">Customer Service</p>
-                                <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 20%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
+                      <div class="col-md-12">
+                        <div class="card mb-4"  id="retosCard">
+                          <div class="card-body">
+                              <h5 class="card-title" style="color: #172F85;">Habilidades</h5>
+                              {% for habilidad,cantidad in habilidades_empleado %}
+                              <p class="mb-1" style="font-size: .77rem; color: #7F88BC;">{{habilidad}}</p>
+                              <div class="progress rounded" style="height: 5px;">
+                                  <div class="progress-bar" role="progressbar" style="width: {{cantidad}}0%; background-color: #83D2B8;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+                    
+                    
                         
                 
                   <div class="row">

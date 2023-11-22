@@ -164,5 +164,13 @@ def end_challenge(request, reto_id):
     # Actualiza el estado del reto a "Finalizado    "
     reto.estado = 'FINALIZADO'
     reto.save()
+    
+    # actualizar los tokens del empleado cuando finaliza un reto
+    cantidad_tokens_reto = reto.tokens
+    tokens = empleado.tokens_empleado
+    tokens += cantidad_tokens_reto
+    empleado.tokens_empleado = tokens
+    empleado.save()
 
     return HttpResponse(status=204)  # Respuesta sin contenido, solo para no tener errores para retornar
+

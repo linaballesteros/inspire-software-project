@@ -66,6 +66,26 @@ def get_user_type(request):
         except: # controlar el error en caso de que no se haya registrado y quiera ingresar al perfil
             return None, None
 
+def get_skills_employee(retos_finalizados_usuario): # obtener las habilidades del usuario según las categorias de los retos que ha finalizado
+    habilidades_empleado = Reto.objects.filter(
+        id__in=retos_finalizados_usuario.values('reto_id')
+    ).values('categoria_insignia')
+
+    # diccionario con las habilidades como claves y la cantidad de veces que aparecen como valores para mostrarlo en el perfil
+    habilidades_con_cantidad = {}
+    for categoria_insignia in habilidades_empleado:
+        categoria = categoria_insignia['categoria_insignia']
+        if categoria not in habilidades_con_cantidad:
+            habilidades_con_cantidad[categoria] = 0
+        habilidades_con_cantidad[categoria] += 1
+
+    # Convertir el diccionario a una lista de tuplas
+    habilidades_empleado = []
+    for categoria, cantidad in habilidades_con_cantidad.items():
+        habilidades_empleado.append((categoria, cantidad))
+
+    return habilidades_empleado # se ve así -> [('Comunicación efectiva', 2), ('Empatía', 1)]
+
 
 def profile(request):
     
@@ -88,12 +108,20 @@ def profile(request):
        print("-------")
        print(retos_iniciados_usuario)
        
+        # Para mostrar los retos que se encuentran en estado = Finalizado en el perfil
+
        retos_finalizados_usuario = RetosFinalizados.objects.filter(empleado=empleado)
        retos_finalizados = Reto.objects.filter(id__in=retos_iniciados_usuario.values('reto_id'), estado='FINALIZADO')
        cantidad_retos_finalizados = retos_finalizados_usuario.count()
        
-       # Para mostrar los retos que se encuentran en estado = Finalizado en el perfil
-       return render(request, 'profile_employee.html', {'data_usuario':data_usuario, 'retos_iniciados':retos_iniciados, 'retos_iniciados_usuario':retos_iniciados_usuario, 'cantidad_retos_iniciados':cantidad_retos_iniciados, 'retos_finalizados':retos_finalizados, 'retos_finalizados_usuario':retos_finalizados_usuario, 'cantidad_retos_finalizados':cantidad_retos_finalizados})
+       # enviar las habilidades de cada empleado
+       
+       habilidades_empleado = get_skills_employee(retos_finalizados_usuario)
+       print("habilidades:") 
+       print(habilidades_empleado)
+       
+       
+       return render(request, 'profile_employee.html', {'data_usuario':data_usuario, 'retos_iniciados':retos_iniciados, 'retos_iniciados_usuario':retos_iniciados_usuario, 'cantidad_retos_iniciados':cantidad_retos_iniciados, 'retos_finalizados':retos_finalizados, 'retos_finalizados_usuario':retos_finalizados_usuario, 'cantidad_retos_finalizados':cantidad_retos_finalizados, 'habilidades_empleado':habilidades_empleado})
    
    elif tipo_usuario == 'empleador':
        return render(request, 'profile_employer.html', data_usuario)
